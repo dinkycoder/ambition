@@ -1,0 +1,63 @@
+# Copies every change on main to https://gitlab.com/dinkycoder/ambition, PDFs and images included.
+# It needs a repository secret named GITLAB_TOKEN: a GitLab personal access token with only the
+# write_repository scope. Until that secret exists, the job skips itself instead of failing.
+# It syncs the files rather than force-pushing history, so GitLab's protected main branch
+# needs no changes; each sync lands on GitLab as one commit naming the GitHub commit it copies.
+name: Mirror to GitLab
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gitlab-mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for the GitLab token
+        id: token
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          if [ -z "$GITLAB_TOKEN" ]; then
+            echo "::notice::GITLAB_TOKEN is not set, so nothing was mirrored."
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out GitHub main
+        if: steps.token.outputs.present == 'true'
+        uses: actions/checkout@v4
+        with:
+          path: github
+          persist-credentials: false
+
+      - name: Copy the files to GitLab main
+        if: steps.token.outputs.present == 'true'
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git clone --quiet --depth 1 --branch main \
+            "https://oauth2:${GITLAB_TOKEN}@gitlab.com/dinkycoder/ambition.git" gitlab
+          rsync -a --delete --exclude '.git' --exclude '.github' github/ gitlab/
+          cd gitlab
+          git add -A
+          if git diff --cached --quiet; then
+            echo "GitLab already matches GitHub."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit --quiet -m "Sync from GitHub ${GITHUB_SHA::7}" \
+              -m "https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+          git push --quiet origin HEAD:main
+          echo "Mirrored ${GITHUB_SHA::7} to GitLab."
