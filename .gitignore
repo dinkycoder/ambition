@@ -1,0 +1,17 @@
+# Secrets never enter this repository: wallet keys, seed phrases, API keys
+.env
+.env.*
+*.key
+*.pem
+secrets/
+keystore/
+
+# Dependencies and build output
+node_modules/
+__pycache__/
+.venv/
+dist/
+build/
+
+# OS clutter
+.DS_Store

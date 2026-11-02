@@ -1,0 +1,28 @@
+<!-- @dsCard group="Status" height=170 subtitle="With its explanation open" -->
+<!doctype html>
+<html lang="en">
+<head><link rel="stylesheet" href="../../tokens.css"><meta charset="utf-8"><title>AgentProposalLabel — preview</title>
+<style>
+  html,body{margin:0}
+  body{background:var(--background);color:var(--text-primary);font-family:var(--font-sans);font-size:14px;line-height:20px;padding:var(--space-16);}
+  .num{font-variant-numeric:tabular-nums}
+  .mono{font-family:var(--font-mono)}
+  .muted{color:var(--text-secondary)}
+  .btn{height:var(--control-md);padding:0 var(--space-16);border-radius:var(--radius-md);font:inherit;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:var(--space-8)}
+  .btn-primary{background:var(--interactive);color:var(--text-on-interactive);border:1px solid var(--interactive)}
+  .btn-secondary{background:transparent;color:var(--text-primary);border:1px solid var(--border-strong)}
+  .btn-ghost{background:transparent;color:var(--link);border:1px solid transparent}
+  .focus{outline:2px solid var(--focus);outline-offset:2px}
+  .tag{display:inline-flex;align-items:center;gap:var(--space-4);height:24px;padding:0 var(--space-8);border-radius:var(--radius-pill);font-size:12px;line-height:16px;letter-spacing:.32px;border:1px solid currentColor}
+  svg.i{width:var(--icon-16);height:var(--icon-16);flex:none}
+</style>
+<style>.agent{color:var(--interactive)}
+.tip{margin-top:var(--space-8);max-width:360px;background:var(--layer);border:1px solid var(--border-strong);border-radius:var(--radius-md);box-shadow:var(--shadow-overlay);padding:var(--space-12)}
+.tip b{display:block;margin-bottom:var(--space-4)}
+.why{height:24px;padding:0 var(--space-8);font-weight:400;font-size:12px}</style>
+</head>
+<body>
+<div><span class="tag agent"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.6 4.9 4.9 1.6-4.9 1.6L8 14.5l-1.6-4.9L1.5 8l4.9-1.6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Proposed by your agent</span> <button class="btn btn-ghost why focus" aria-expanded="true">Why?</button></div>
+<div class="tip" role="note"><b>Why your agent proposed this</b>It needs today's forecast for the report you asked for. Weather API charges 0.05 USDC per call, and this is call 3 of 4 today.</div>
+</body>
+</html>

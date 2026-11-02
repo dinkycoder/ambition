@@ -1,0 +1,37 @@
+<!-- @dsCard group="Money" height=250 subtitle="Normal and near the limit" -->
+<!doctype html>
+<html lang="en">
+<head><link rel="stylesheet" href="../../tokens.css"><meta charset="utf-8"><title>SpendMeter — preview</title>
+<style>
+  html,body{margin:0}
+  body{background:var(--background);color:var(--text-primary);font-family:var(--font-sans);font-size:14px;line-height:20px;padding:var(--space-16);}
+  .num{font-variant-numeric:tabular-nums}
+  .mono{font-family:var(--font-mono)}
+  .muted{color:var(--text-secondary)}
+  .btn{height:var(--control-md);padding:0 var(--space-16);border-radius:var(--radius-md);font:inherit;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:var(--space-8)}
+  .btn-primary{background:var(--interactive);color:var(--text-on-interactive);border:1px solid var(--interactive)}
+  .btn-secondary{background:transparent;color:var(--text-primary);border:1px solid var(--border-strong)}
+  .btn-ghost{background:transparent;color:var(--link);border:1px solid transparent}
+  .focus{outline:2px solid var(--focus);outline-offset:2px}
+  .tag{display:inline-flex;align-items:center;gap:var(--space-4);height:24px;padding:0 var(--space-8);border-radius:var(--radius-pill);font-size:12px;line-height:16px;letter-spacing:.32px;border:1px solid currentColor}
+  svg.i{width:var(--icon-16);height:var(--icon-16);flex:none}
+</style>
+<style>.m{max-width:420px;margin-bottom:var(--space-24)}
+.lbl{font-size:12px;letter-spacing:.32px;color:var(--text-secondary)}
+.big{font-size:32px;line-height:40px;font-weight:600;font-variant-numeric:tabular-nums}
+.big span{font-size:16px;font-weight:400;color:var(--text-secondary)}
+.bar{position:relative;height:8px;background:var(--layer-alt);border:1px solid var(--border-strong);border-radius:var(--radius-sm);margin:var(--space-8) 0}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--interactive)}
+.tick{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--text-primary)}
+.warn{color:var(--support-warning);display:inline-flex;gap:var(--space-4);align-items:center}
+.small{font-size:12px;line-height:16px;color:var(--text-secondary)}</style>
+</head>
+<body>
+<div class="m"><div class="lbl">Spent today</div><div class="big">15.00 <span>of 20.00 USDC</span></div>
+<div class="bar" role="meter" aria-valuemin="0" aria-valuemax="20" aria-valuenow="15" aria-label="Spent today"><div class="fill" style="width:75%"></div><div class="tick" style="left:80%"></div></div>
+<div class="small">5.00 USDC left · resets at 00:00 UTC · alert at 80%</div></div>
+<div class="m"><div class="big" style="font-size:20px;line-height:28px">18.40 <span>of 20.00 USDC</span></div>
+<div class="bar"><div class="fill" style="width:92%"></div><div class="tick" style="left:80%"></div></div>
+<div class="small"><span class="warn"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2L14.5 13.5h-13z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.5v3M8 11.3v.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Near limit</span> · 1.60 USDC left today</div></div>
+</body>
+</html>

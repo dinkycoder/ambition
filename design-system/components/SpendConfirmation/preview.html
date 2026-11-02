@@ -1,0 +1,51 @@
+<!-- @dsCard group="Dialogs" height=500 subtitle="Before any spend, approval or signature" -->
+<!doctype html>
+<html lang="en">
+<head><link rel="stylesheet" href="../../tokens.css"><meta charset="utf-8"><title>SpendConfirmation — preview</title>
+<style>
+  html,body{margin:0}
+  body{background:var(--background);color:var(--text-primary);font-family:var(--font-sans);font-size:14px;line-height:20px;padding:var(--space-16);}
+  .num{font-variant-numeric:tabular-nums}
+  .mono{font-family:var(--font-mono)}
+  .muted{color:var(--text-secondary)}
+  .btn{height:var(--control-md);padding:0 var(--space-16);border-radius:var(--radius-md);font:inherit;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:var(--space-8)}
+  .btn-primary{background:var(--interactive);color:var(--text-on-interactive);border:1px solid var(--interactive)}
+  .btn-secondary{background:transparent;color:var(--text-primary);border:1px solid var(--border-strong)}
+  .btn-ghost{background:transparent;color:var(--link);border:1px solid transparent}
+  .focus{outline:2px solid var(--focus);outline-offset:2px}
+  .tag{display:inline-flex;align-items:center;gap:var(--space-4);height:24px;padding:0 var(--space-8);border-radius:var(--radius-pill);font-size:12px;line-height:16px;letter-spacing:.32px;border:1px solid currentColor}
+  svg.i{width:var(--icon-16);height:var(--icon-16);flex:none}
+</style>
+<style>
+.scrim{background:var(--overlay-scrim);padding:var(--space-24);border-radius:var(--radius-md)}
+.dlg{max-width:480px;margin:0 auto;background:var(--layer);border-radius:var(--radius-md);box-shadow:var(--shadow-overlay);border:1px solid var(--border-subtle);padding:var(--space-24)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:var(--space-8);margin-bottom:var(--space-12);flex-wrap:wrap}
+h2{margin:0 0 var(--space-4);font-size:20px;line-height:28px;font-weight:600}
+dl{margin:var(--space-16) 0;display:grid;grid-template-columns:auto 1fr;gap:var(--space-8) var(--space-16)}
+dt{color:var(--text-secondary);font-size:12px;line-height:20px;letter-spacing:.32px}
+dd{margin:0}
+.amt{font-size:16px;line-height:24px;font-weight:600}
+.final{color:var(--support-warning);display:flex;gap:var(--space-4);align-items:flex-start}
+.net{background:var(--network-test);color:var(--text-on-network-test);border-color:transparent}
+.agent{color:var(--interactive)}
+.foot{display:flex;justify-content:flex-end;gap:var(--space-8);margin-top:var(--space-24);border-top:1px solid var(--border-subtle);padding-top:var(--space-16)}
+.addr b{font-weight:400;color:var(--text-primary)} .addr{color:var(--text-secondary)}
+</style>
+</head>
+<body>
+<div class="scrim">
+<div class="dlg" role="dialog" aria-modal="true" aria-labelledby="t">
+  <div class="top"><span class="tag agent"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.6 4.9 4.9 1.6-4.9 1.6L8 14.5l-1.6-4.9L1.5 8l4.9-1.6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Proposed by your agent</span><span class="tag net"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2h4M6.8 2v4.2L3 12.5A1 1 0 0 0 3.9 14h8.2a1 1 0 0 0 .9-1.5L9.2 6.2V2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Test money · Base Sepolia</span></div>
+  <h2 id="t">Send 5 test USDC to Weather API?</h2>
+  <div class="muted">Your agent wants today's forecast for its report.</div>
+  <dl>
+    <dt>Amount</dt><dd class="amt num">5.000000 USDC <span class="muted" style="font-weight:400;font-size:14px">≈ $5.00</span></dd>
+    <dt>To</dt><dd>Weather API <span class="muted">(saved vendor)</span><br><span class="mono addr"><b>0x71C7</b> 656E C7ab 88b0 98de fB75 1B74 01B5 f6d8 <b>976F</b></span></dd>
+    <dt>Network</dt><dd>Base Sepolia (test network)</dd>
+    <dt>Limit left after</dt><dd class="num">15.00 of 20.00 USDC today</dd>
+    <dt>Most you could lose</dt><dd class="final"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2L14.5 13.5h-13z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.5v3M8 11.3v.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span><b class="num">5.00 USDC.</b> Blockchain payments are final and can't be undone.</span></dd>
+  </dl>
+  <div class="foot"><button class="btn btn-secondary focus">Cancel</button><button class="btn btn-primary">Send 5 test USDC</button></div>
+</div></div>
+</body>
+</html>

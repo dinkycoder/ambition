@@ -1,0 +1,37 @@
+<!-- @dsCard group="Money" height=190 subtitle="Default and error" -->
+<!doctype html>
+<html lang="en">
+<head><link rel="stylesheet" href="../../tokens.css"><meta charset="utf-8"><title>AmountInput — preview</title>
+<style>
+  html,body{margin:0}
+  body{background:var(--background);color:var(--text-primary);font-family:var(--font-sans);font-size:14px;line-height:20px;padding:var(--space-16);}
+  .num{font-variant-numeric:tabular-nums}
+  .mono{font-family:var(--font-mono)}
+  .muted{color:var(--text-secondary)}
+  .btn{height:var(--control-md);padding:0 var(--space-16);border-radius:var(--radius-md);font:inherit;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:var(--space-8)}
+  .btn-primary{background:var(--interactive);color:var(--text-on-interactive);border:1px solid var(--interactive)}
+  .btn-secondary{background:transparent;color:var(--text-primary);border:1px solid var(--border-strong)}
+  .btn-ghost{background:transparent;color:var(--link);border:1px solid transparent}
+  .focus{outline:2px solid var(--focus);outline-offset:2px}
+  .tag{display:inline-flex;align-items:center;gap:var(--space-4);height:24px;padding:0 var(--space-8);border-radius:var(--radius-pill);font-size:12px;line-height:16px;letter-spacing:.32px;border:1px solid currentColor}
+  svg.i{width:var(--icon-16);height:var(--icon-16);flex:none}
+</style>
+<style>
+.row{display:flex;gap:var(--space-32);flex-wrap:wrap}
+.f{width:260px}
+label{display:block;font-size:12px;line-height:16px;letter-spacing:.32px;color:var(--text-secondary);margin-bottom:var(--space-8)}
+.box{display:flex;align-items:center;height:var(--control-md);background:var(--layer);border:1px solid var(--border-strong);border-radius:var(--radius-sm)}
+.box input{flex:1;min-width:0;border:0;background:transparent;color:var(--text-primary);font:inherit;font-size:16px;font-variant-numeric:tabular-nums;padding:0 var(--space-12);outline:none}
+.unit{padding:0 var(--space-12);color:var(--text-secondary);border-left:1px solid var(--border-subtle);height:100%;display:flex;align-items:center}
+.help{font-size:12px;line-height:16px;color:var(--text-secondary);margin-top:var(--space-8)}
+.err .box{border:2px solid var(--support-danger)}
+.err .help{color:var(--support-danger);display:flex;gap:var(--space-4)}
+</style>
+</head>
+<body>
+<div class="row">
+ <div class="f"><label for="a">Amount</label><div class="box focus"><input id="a" value="5.000000" inputmode="decimal" aria-describedby="h1"><span class="unit">USDC</span></div><div class="help" id="h1">Up to six decimals. You'll confirm before anything is sent.</div></div>
+ <div class="f err"><label for="b">Amount</label><div class="box"><input id="b" value="5.0.1" inputmode="decimal" aria-invalid="true" aria-describedby="h2"><span class="unit">USDC</span></div><div class="help" id="h2"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.8 5.8l4.4 4.4M10.2 5.8l-4.4 4.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Error: enter a number like 5 or 0.25.</span></div></div>
+</div>
+</body>
+</html>

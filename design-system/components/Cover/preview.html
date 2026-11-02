@@ -1,0 +1,84 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head><link rel="stylesheet" href="../../tokens.css">
+<meta charset="utf-8">
+<title>Ambition</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--background); color:var(--text-primary); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .tint { fill:var(--brand-tint); }
+  .act { fill:var(--interactive); }
+  .ink { fill:var(--brand-ink); }
+  .net { fill:var(--network-test); }
+  .dot { fill:var(--interactive); }
+  .cut { fill:var(--background); }
+  .blk { rx:var(--radius-lg); }
+  .chip { rx:var(--radius-md); }
+  .words { position:absolute; left:var(--space-24); bottom:var(--space-24); max-width:440px; }
+  .name { margin:0; font-size:88px; line-height:.92; font-weight:600; letter-spacing:-.02em; color:var(--text-primary); }
+  .tag { margin:var(--space-12) 0 0 4px; font-size:14px; line-height:20px; color:var(--text-secondary); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      brand-tint 96x80 · interactive 96x136 · brand-ink 96x192 · interactive 128x272 bleeding off the top and right (the brand colour, largest) · network-test 24x24 once, small, because it only ever marks test money — about 26% of 960x288
+  arrangement four rungs rising left to right, bottoms on one line space-24 above the edge, space-16 gutters: the least-to-most ladder (toy, real, value-adding, 10x) the series climbs
+  pattern     a dot grid at a space-16 pitch — "every gap is a spacing token on the 4px unit", the precise, technical row — interactive dots on the tint rung, background dots cut into the brand-ink rung
+  scales      rung width 96 (space-96), gutters space-16, pitch space-16, block corners radius-lg, chip radius-md, dots r=2 (space-4 across)
+-->
+<rect class="tint blk" x="24" y="184" width="96" height="80" rx="8"/>
+<rect class="act blk" x="136" y="128" width="96" height="136" rx="8"/>
+<rect class="ink blk" x="248" y="72" width="96" height="192" rx="8"/>
+<rect class="act blk" x="360" y="-8" width="128" height="272" rx="8"/>
+<rect class="net chip" x="24" y="152" width="24" height="24" rx="4"/>
+<circle class="dot" cx="40" cy="200" r="2"/>
+<circle class="dot" cx="40" cy="216" r="2"/>
+<circle class="dot" cx="40" cy="232" r="2"/>
+<circle class="dot" cx="40" cy="248" r="2"/>
+<circle class="dot" cx="56" cy="200" r="2"/>
+<circle class="dot" cx="56" cy="216" r="2"/>
+<circle class="dot" cx="56" cy="232" r="2"/>
+<circle class="dot" cx="56" cy="248" r="2"/>
+<circle class="dot" cx="72" cy="200" r="2"/>
+<circle class="dot" cx="72" cy="216" r="2"/>
+<circle class="dot" cx="72" cy="232" r="2"/>
+<circle class="dot" cx="72" cy="248" r="2"/>
+<circle class="dot" cx="88" cy="200" r="2"/>
+<circle class="dot" cx="88" cy="216" r="2"/>
+<circle class="dot" cx="88" cy="232" r="2"/>
+<circle class="dot" cx="88" cy="248" r="2"/>
+<circle class="dot" cx="104" cy="200" r="2"/>
+<circle class="dot" cx="104" cy="216" r="2"/>
+<circle class="dot" cx="104" cy="232" r="2"/>
+<circle class="dot" cx="104" cy="248" r="2"/>
+<circle class="cut" cx="264" cy="88" r="2"/>
+<circle class="cut" cx="264" cy="104" r="2"/>
+<circle class="cut" cx="264" cy="120" r="2"/>
+<circle class="cut" cx="280" cy="88" r="2"/>
+<circle class="cut" cx="280" cy="104" r="2"/>
+<circle class="cut" cx="280" cy="120" r="2"/>
+<circle class="cut" cx="296" cy="88" r="2"/>
+<circle class="cut" cx="296" cy="104" r="2"/>
+<circle class="cut" cx="296" cy="120" r="2"/>
+<circle class="cut" cx="312" cy="88" r="2"/>
+<circle class="cut" cx="312" cy="104" r="2"/>
+<circle class="cut" cx="312" cy="120" r="2"/>
+<circle class="cut" cx="328" cy="88" r="2"/>
+<circle class="cut" cx="328" cy="104" r="2"/>
+<circle class="cut" cx="328" cy="120" r="2"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Ambition</h1>
+<p class="tag">Help AI builders give their agents money safely, one small win at a time.</p>
+</div>
+</div>
+</body>
+</html>

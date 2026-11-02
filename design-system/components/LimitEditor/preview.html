@@ -1,0 +1,28 @@
+<!-- @dsCard group="Money" height=130 subtitle="The limit as a sentence" -->
+<!doctype html>
+<html lang="en">
+<head><link rel="stylesheet" href="../../tokens.css"><meta charset="utf-8"><title>LimitEditor — preview</title>
+<style>
+  html,body{margin:0}
+  body{background:var(--background);color:var(--text-primary);font-family:var(--font-sans);font-size:14px;line-height:20px;padding:var(--space-16);}
+  .num{font-variant-numeric:tabular-nums}
+  .mono{font-family:var(--font-mono)}
+  .muted{color:var(--text-secondary)}
+  .btn{height:var(--control-md);padding:0 var(--space-16);border-radius:var(--radius-md);font:inherit;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:var(--space-8)}
+  .btn-primary{background:var(--interactive);color:var(--text-on-interactive);border:1px solid var(--interactive)}
+  .btn-secondary{background:transparent;color:var(--text-primary);border:1px solid var(--border-strong)}
+  .btn-ghost{background:transparent;color:var(--link);border:1px solid transparent}
+  .focus{outline:2px solid var(--focus);outline-offset:2px}
+  .tag{display:inline-flex;align-items:center;gap:var(--space-4);height:24px;padding:0 var(--space-8);border-radius:var(--radius-pill);font-size:12px;line-height:16px;letter-spacing:.32px;border:1px solid currentColor}
+  svg.i{width:var(--icon-16);height:var(--icon-16);flex:none}
+</style>
+<style>.s{font-size:16px;line-height:40px;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-8)}
+.sel,.num{height:var(--control-md);border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--layer);color:var(--text-primary);font:inherit;padding:0 var(--space-12);display:inline-flex;align-items:center;gap:var(--space-8)}
+.num{width:72px;font-variant-numeric:tabular-nums}
+.small{font-size:12px;line-height:16px;color:var(--text-secondary);margin-top:var(--space-8)}</style>
+</head>
+<body>
+<div class="s">Let <span class="sel" role="button" aria-haspopup="listbox">Research agent ▾</span> spend <input class="num focus" value="5" aria-label="Amount per period in USDC"> USDC per <span class="sel" role="button" aria-haspopup="listbox">day ▾</span>.</div>
+<div class="small">Lowering a limit takes effect at once. Raising it asks for confirmation first.</div>
+</body>
+</html>
