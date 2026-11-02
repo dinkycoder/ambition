@@ -21,6 +21,10 @@ Code arrives week by week, starting with the agent wallet in week 1.
 
 Everything runs on Base Sepolia, a free test network, with test money only. No wallet key, seed phrase or API key ever goes into this repository or a post. Never share a seed phrase with anyone.
 
+## Contributing
+
+The main copy of Ambition lives on GitHub. [gitlab.com/dinkycoder/ambition](https://gitlab.com/dinkycoder/ambition) is an automatic mirror that GitHub overwrites on every change, so please open issues and pull requests on [GitHub](https://github.com/dinkycoder/ambition). [CONTRIBUTING.md](CONTRIBUTING.md) covers the safety rules, how to propose a change and the design rules.
+
 ## License
 
-No license has been chosen yet, so all rights are reserved for now. An open-source license (MIT or Apache 2.0) will be added before the first code release. The Ambition name and any future logo are not covered by the code license.
+Ambition is released under the [MIT License](LICENSE), which covers the code, docs and design system in this repository. The license doesn't cover the Ambition name or any future logo.
