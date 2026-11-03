@@ -44,6 +44,19 @@ Twelve rules from the book change what we build, and most of them come from chap
 
 The book never mentions blockchains, smart contracts, wallets, stablecoins, x402 or agent payments, so it informs the agent and its safeguards but not the on-chain parts. Contract security and gas costs still come from the plan and the code. Its labs are in Python with OpenAI, Claude, LangGraph and LlamaIndex, and its framework survey is current to mid-2026, so check framework details before relying on them. Treat its customer statistics as vendor claims, as the book itself often notes.
 
+## Companion notebooks: Dupouy's LLMs-in-Finance
+
+Hanane Dupouy's own notebook collection, [hananedupouy/LLMs-in-Finance](https://github.com/hananedupouy/LLMs-in-Finance/tree/d6d4d4e18d5cc88e326e435e4ecba26278dd6b85), turns several of the book's evaluation and cost rules into runnable code under the MIT license. We link to it rather than copy it in, and every link below is pinned to commit `d6d4d4e` (November 1, 2026), the version reviewed, so the files can't change underneath us. The repo is for education rather than production, and like the book it never covers blockchains or payments.
+
+| Notebook | What it shows | In Ambition |
+| --- | --- | --- |
+| [Trajectory evals with Phoenix](https://github.com/hananedupouy/LLMs-in-Finance/blob/d6d4d4e18d5cc88e326e435e4ecba26278dd6b85/Agents/observability_tracing/trajectory_evals_financial_ai_agent_OpenAI_Agents_SDK_Phoenix.ipynb) | An agent gives the right number without calling the approved calculator, and a check on the path it took, rather than the answer, catches it; the tracing runs on your own machine | Prove every spend passed the limit check and every amount came from code |
+| [Prompt caching with Anthropic](https://github.com/hananedupouy/LLMs-in-Finance/blob/d6d4d4e18d5cc88e326e435e4ecba26278dd6b85/RAG/Anthropic/Anthropic_Prompt_Caching.ipynb) and [with OpenAI in a RAG workflow](https://github.com/hananedupouy/LLMs-in-Finance/blob/d6d4d4e18d5cc88e326e435e4ecba26278dd6b85/RAG/llamaindex/PromptCaching_RAG_Workflow.ipynb) | Reusing a cached prompt prefix, so agents that re-read the same material cost less and answer faster | Cheaper runs when agents re-read the same docs or statements |
+| [RAG evaluation with DeepEval and Giskard](https://github.com/hananedupouy/LLMs-in-Finance/tree/d6d4d4e18d5cc88e326e435e4ecba26278dd6b85/RAG/evaluation) | Scoring answers drawn from looked-up documents | A starting scorecard for any feature that answers from documents |
+| [Paper summaries](https://github.com/hananedupouy/LLMs-in-Finance/tree/d6d4d4e18d5cc88e326e435e4ecba26278dd6b85/Papers) | Short notes on evaluation-driven development, chain-of-verification, self-refine and StockBench | A reading list for the evaluation work |
+
+Check Arize Phoenix's own license before adopting it. The Giskard notebook, like several others in the repo, sends documents to the LlamaParse cloud service, which is fine for public material only. Copying any code means keeping its MIT notice and naming the source and commit in the commit message.
+
 ## How the book is stored and used
 
 **The PDF itself stays out of Git.** The book's copyright page says no part may be "reproduced, stored in a retrieval system, or transmitted" without Packt's permission, apart from brief quotations, and a Git repository is a retrieval system. This repo is public and mirrored to GitLab, so the book can never be committed here.
