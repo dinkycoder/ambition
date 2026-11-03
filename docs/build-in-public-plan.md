@@ -18,11 +18,13 @@ The mission names no product, protocol or blockchain, so the build can change wi
 
 ## The ladder
 
-**You climb from toy programs to a product in four rungs, and each gate is a fact anyone can check.**
+**You climb from toy programs to a product in five rungs, and each gate is a fact anyone can check.**
 
-![The least-to-most ladder: four rungs, three gates](img/ladder.png)
+![The least-to-most ladder: five rungs, four gates](img/ladder.png)
 
 The 12 weeks cover the first two rungs and the start of the third. A missed gate moves the date rather than lowering the bar, the same rule as your earlier plans.
+
+**The verified-owner rung comes after the demo.** Your agent pays only agents and vendors whose owner has proved a verified identity with a zero-knowledge proof, which is math that proves a fact without revealing the data behind it, like an "over 21" card with no name on it. Ambition reuses existing tools rather than building identity itself: passport-chip proof apps such as Self and ZKPassport for the owner, and an on-chain agent ID such as the draft ERC-8004 standard for the agent. The proof shows that a real, verified person stands behind an agent, but not who, and the spending limit and escrow still do the safety work.
 
 ## The 12 weeks
 
