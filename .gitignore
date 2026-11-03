@@ -15,3 +15,7 @@ build/
 
 # OS clutter
 .DS_Store
+
+# Licensed books and other copyrighted references stay out of Git; only our own notes are committed
+books/
+9781837022298.pdf
