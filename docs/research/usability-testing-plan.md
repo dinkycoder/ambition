@@ -1,14 +1,14 @@
 # Usability Testing for Ambition: Research and Plan
 
-Nov 2, 2026 · Dayn Kirksey
+Nov 4, 2026 · Dayn Kirksey
 
 ## Executive summary
 
-You can run credible usability studies of Ambition for $0 to $100 by combining free tools, and Figma Make lets you test Ambition's money flows about six weeks earlier than planned. Free tiers cap each study at 3 to 15 responses. That is enough, because Nielsen Norman Group found that five users per round catch about 85% of usability problems.
+You can run credible usability studies of Ambition for $0 to $100 by combining free tools, and Figma Make lets you test Ambition's money flows about six modules earlier than planned. Free tiers cap each study at 3 to 15 responses. That is enough, because Nielsen Norman Group found that five users per round catch about 85% of usability problems.
 
 For Ambition, the core method stays free: moderated think-aloud sessions with five developers per round, recruited from your LinkedIn audience. Figma Make turns a typed prompt into a clickable prototype with working buttons and forms. Testers can therefore complete a "Send 5 test USDC" task with simulated money and no wallet at all.
 
-That shift lets unmoderated tests in UXtweak Free and Lyssna Free cover the spend-confirmation dialog in weeks 4 to 5, before the email-login wallet build exists. Free session replay from PostHog or Microsoft Clarity then covers the live testnet app from week 7.
+That shift lets unmoderated tests in UXtweak Free and Lyssna Free cover the spend-confirmation dialog in modules 4 to 5, before the email-login wallet build exists. Free session replay from PostHog or Microsoft Clarity then covers the live testnet app from module 7.
 
 ## Tools compared
 
@@ -79,7 +79,7 @@ The page also lists Maze, UserTesting, Lyssna, Hotjar, Useberry, Lookback and Us
 
 **Lyssna has the most generous free plan for quick design tests.** Its [help center](https://help.lyssna.com/en/articles/4953377-plan-and-pricing-overview) lists 3 seats and unlimited quick studies, but only the first 15 self-recruited responses per test are viewable. Growth costs $199 a month, or $165 billed annually, and panel responses cost about $1 per participant-minute. Figma's guide adds that Lyssna's panel holds 690,000+ people in 120+ countries, with 395+ filters and AI follow-up questions.
 
-**Maze has the best Figma link but the tightest ceiling.** A third-party read of its pricing page on October 12, 2026 says US buyers see only Free (5 seats, 1 study a month) and a custom Enterprise plan ([User Insight](https://userinsight.ai/blog/maze-pricing), [Checkthat](https://checkthat.ai/brands/maze/pricing)). Its AI moderator and interviews are Enterprise-only, so one study a month is the hard limit for a 12-week sprint.
+**Maze has the best Figma link but the tightest ceiling.** A third-party read of its pricing page on October 12, 2026 says US buyers see only Free (5 seats, 1 study a month) and a custom Enterprise plan ([User Insight](https://userinsight.ai/blog/maze-pricing), [Checkthat](https://checkthat.ai/brands/maze/pricing)). Its AI moderator and interviews are Enterprise-only, so one study a month is the hard limit for a plan built on many small rounds.
 
 **Useberry is the cheapest paid upgrade.** Free gives 10 responses a month, and Growth costs $79 a month, or $67 billed annually, with deep Figma import ([G2](https://www.g2.com/products/useberry/pricing)). G2 lists 50% off Growth for students, which brings it to about $33 to $40 a month.
 
@@ -95,7 +95,7 @@ The page also lists Maze, UserTesting, Lyssna, Hotjar, Useberry, Lookback and Us
 
 ## 4. Recruiting cheaply
 
-**Your build-in-public audience is the cheapest and best-matched pool you have.** Each weekly LinkedIn reader challenge can double as a study link, such as "Take this 3-minute tree test of Ambition's docs." Base and Coinbase developer communities, Farcaster, x402 and agent-builder Discords, hackathon alumni and Quantic classmates add crypto-native and crypto-novice perspectives. Once its snippet is on your site, UXtweak's onsite recruiting widget invites docs visitors for free.
+**Your build-in-public audience is the cheapest and best-matched pool you have.** Each module's reader challenge can double as a study link, such as "Take this 3-minute tree test of Ambition's docs." Base and Coinbase developer communities, Farcaster, x402 and agent-builder Discords, hackathon alumni and Quantic classmates add crypto-native and crypto-novice perspectives. Once its snippet is on your site, UXtweak's onsite recruiting widget invites docs visitors for free.
 
 **Paid panels are poor value for finding crypto developers.** User Interviews charges $49 per B2C or $98 per B2B session, with incentives billed on top ([pricing](https://www.userinterviews.com/pricing)). Prolific adds a 42.857% fee to participant rewards for companies, or 33.3% for academic accounts, and requires at least $8 an hour, with $12 recommended ([Prolific](https://researcher-help.prolific.com/en/articles/445239-what-is-your-pricing)). Respondent reportedly charges about $40 per B2C and $80 per B2B session, a figure I did not recheck.
 
@@ -109,9 +109,9 @@ Ambition has two groups, AI builders new to crypto and crypto-native developers,
 
 **Wallets, faucets and signing break most unmoderated tests, so take them out of the test until you are testing them.** There are three ways to do that, in the order the plan uses them. Each removes a step that has nothing to do with the question being asked.
 
-1. **Simulate the money in a Figma Make prototype** (weeks 3 to 6). The prototype shows a balance, a confirmation and a final status with no wallet, so any tester can finish the task unmoderated.
-2. **Pre-fund wallets for moderated sessions** (weeks 5 to 10). [Circle's faucet](https://faucet.circle.com/) gives 20 test USDC on Base Sepolia per address every 2 hours with no account. [Coinbase's faucet](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/faucets/request-funds-on-evm-test-networks) gives 1 USDC per request, up to 10 a day, and needs an account, so fund wallets the day before.
-3. **Use email-login wallets for unmoderated tests of the live app** (weeks 7 to 11). [Coinbase's embedded wallets](https://docs.cdp.coinbase.com/embedded-wallets/welcome) let people sign in by email or social login, with the first 5,000 operations a month free ([pricing](https://docs.cdp.coinbase.com/embedded-wallets/pricing)). On Base Sepolia, the [CDP SDK](https://www.npmjs.com/package/@coinbase/cdp-sdk) makes user operations gasless by default, so testers need no extension and no test ETH.
+1. **Simulate the money in a Figma Make prototype** (modules 3 to 6). The prototype shows a balance, a confirmation and a final status with no wallet, so any tester can finish the task unmoderated.
+2. **Pre-fund wallets for moderated sessions** (modules 5 to 10). [Circle's faucet](https://faucet.circle.com/) gives 20 test USDC on Base Sepolia per address every 2 hours with no account. [Coinbase's faucet](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/faucets/request-funds-on-evm-test-networks) gives 1 USDC per request, up to 10 a day, and needs an account, so fund wallets the day before.
+3. **Use email-login wallets for unmoderated tests of the live app** (modules 7 to 11). [Coinbase's embedded wallets](https://docs.cdp.coinbase.com/embedded-wallets/welcome) let people sign in by email or social login, with the first 5,000 operations a month free ([pricing](https://docs.cdp.coinbase.com/embedded-wallets/pricing)). On Base Sepolia, the [CDP SDK](https://www.npmjs.com/package/@coinbase/cdp-sdk) makes user operations gasless by default, so testers need no extension and no test ETH.
 
 **The confirmation screen deserves the most testing.** MetaMask's design team found that [70 to 90% of all user actions](https://github.com/MetaMask/Design/issues/80) happen on or around the Confirm screen. That makes Ambition's spend-confirmation dialog the highest-leverage screen, and the first one to build in Figma Make.
 
@@ -129,25 +129,23 @@ Ambition has two groups, AI builders new to crypto and crypto-native developers,
 
 # Part 2: The usability-testing plan
 
-## Ambition: 12 weeks to the January 26 demo
+## Ambition: seven phases to Ambition version 1
 
-Ambition's plan runs seven phases from November 2, 2026 to the January 26, 2027 demo. The Figma Make prototype moves the first unmoderated test of a complete payment from weeks 10 to 11 up to weeks 4 to 5. Following Figma's Predict step, every human round starts only after an AI audit of contrast, hierarchy, dead ends and error states passes.
+Ambition's plan runs seven phases across modules 1 to 12 and ends with Ambition version 1 at rung 3. Each phase starts when its module does, so the plan carries no dates until the capstone course sets them. The Figma Make prototype moves the first unmoderated test of a complete payment from modules 10 to 11 up to modules 4 to 5. Following Figma's Predict step, every human round starts only after an AI audit of contrast, hierarchy, dead ends and error states passes.
 
-![Ambition testing timeline: 7 phases to the January 26 demo](../img/usability-timeline.png)
+The modules 4–5 row is the change from the first plan: testers complete a payment with simulated money on the Make prototype six modules before email-login wallets exist.
 
-The highlighted row is the change from the first plan: testers complete a payment with simulated money on the Make prototype six weeks before email-login wallets exist.
-
-| Weeks | Method | Tool | Participants | Cost | What it answers |
+| Modules | Method | Tool | Participants | Cost | What it answers |
 | --- | --- | --- | --- | --- | --- |
-| 1–2 (Nov 2–15) | Open card sort of glossary and module names | UXtweak Free | 10 LinkedIn readers | $0 | Do readers group and name Ambition's ideas the way the docs do? |
-| 3–4 (Nov 16–29) | Tree test of docs navigation; build the Make prototype of the spend confirmation, limit editor and spend meter with simulated test money; AI audit | UXtweak Free; Figma Make; Carbon code audit and contrast checker | 10 | $0 | Can readers find the quickstart and the limit settings? Does the prototype pass the audit? |
-| 4–5 (Nov 23–Dec 6) | First-click and 5-second tests on prototype screens; unmoderated "Send 5 test USDC" task on the Make prototype | Lyssna Free (15), UXtweak Free (3), Figma view-only link | 15–18 | $0 | Do people see the amount, recipient, network and finality before they confirm? |
-| 5–7 (Nov 30–Dec 20) | Moderated think-aloud, round 1, on the prototype and the quickstart, with a timed first task | Video call recorded locally; FigJam for observers and notes | 5 developers | $0–$125 | Where do developers get stuck on the way to a first payment? |
-| 7–10 (Dec 14–Jan 10) | Live testnet app with session replay and an in-app survey; moderated round 2 with pre-funded or email-login wallets; AI audit first | PostHog Free or Clarity; Circle faucet; Coinbase embedded wallets | 5 developers plus all visitors | $0–$125 | Do round 1's fixes hold up with real test transactions? |
-| 10–11 (Jan 4–17) | System Usability Scale (SUS) survey after tasks; unmoderated website test once email-login wallets are live | PostHog surveys or Google Forms; UXtweak | 10–20 | $0 | How usable is Ambition overall, as one score for the demo? |
-| 12 (Jan 18–24) | Fix round, quick re-test of the top 3 issues, findings post on LinkedIn | Same tools | 3–5 | $0 | Did the top problems go away? |
+| 1–2 | Open card sort of glossary and module names | UXtweak Free | 10 LinkedIn readers | $0 | Do readers group and name Ambition's ideas the way the docs do? |
+| 3–4 | Tree test of docs navigation; build the Make prototype of the spend confirmation, limit editor and spend meter with simulated test money; AI audit | UXtweak Free; Figma Make; Carbon code audit and contrast checker | 10 | $0 | Can readers find the quickstart and the limit settings? Does the prototype pass the audit? |
+| 4–5 | First-click and 5-second tests on prototype screens; unmoderated "Send 5 test USDC" task on the Make prototype | Lyssna Free (15), UXtweak Free (3), Figma view-only link | 15–18 | $0 | Do people see the amount, recipient, network and finality before they confirm? |
+| 5–7 | Moderated think-aloud, round 1, on the prototype and the quickstart, with a timed first task | Video call recorded locally; FigJam for observers and notes | 5 developers | $0–$125 | Where do developers get stuck on the way to a first payment? |
+| 7–10 | Live testnet app with session replay and an in-app survey; moderated round 2 with pre-funded or email-login wallets; AI audit first | PostHog Free or Clarity; Circle faucet; Coinbase embedded wallets | 5 developers plus all visitors | $0–$125 | Do round 1's fixes hold up with real test transactions? |
+| 10–11 | System Usability Scale (SUS) survey after tasks; unmoderated website test once email-login wallets are live | PostHog surveys or Google Forms; UXtweak | 10–20 | $0 | How usable is Ambition overall, as one score for the rung-3 review? |
+| 12 | Fix round, quick re-test of the top 3 issues, findings published with module 12 | Same tools | 3–5 | $0 | Did the top problems go away? |
 
-Each round mixes the two groups, AI builders new to crypto and crypto-native developers, with 3 to 5 of each in the moderated rounds. An optional synthetic-user pass can check structure before rounds 1 and 2, but it never replaces a participant. Each round's notes and decisions go into a FigJam board and the design system's decision log, and the findings become that week's Build in Public post.
+Each round mixes the two groups, AI builders new to crypto and crypto-native developers, with 3 to 5 of each in the moderated rounds. An optional synthetic-user pass can check structure before rounds 1 and 2, but it never replaces a participant. Each round's notes and decisions go into a FigJam board and the design system's decision log, and the findings are published with that module's notes.
 
 ## Budget
 
@@ -157,7 +155,7 @@ The plan works at $0, and money mainly buys fairer thank-yous rather than better
 | --- | --- |
 | $0 | UXtweak Free, Lyssna Free, Figma Make prototypes and FigJam on your Education plan (if Make is included), PostHog Free or Clarity, free video calls, a Google Forms SUS survey, the Circle faucet, and volunteers thanked with public credit and early access |
 | Under $100 | Everything above, plus $20 gift cards for 4 developers in the hardest round ($80), or one month of Useberry Growth at the student discount (about $33 to $40) if the 10-response cap blocks you |
-| Under $500 | Everything above, plus $20 for each of 10 developers across 2 rounds ($200), and one month of UXtweak Business (about €92 to $107) during weeks 7 to 10 unless the student discount makes it free |
+| Under $500 | Everything above, plus $20 for each of 10 developers across 2 rounds ($200), and one month of UXtweak Business (about €92 to $107) during modules 7 to 10 unless the student discount makes it free |
 
 ## First actions
 
@@ -165,9 +163,9 @@ The plan works at $0, and money mainly buys fairer thank-yous rather than better
 - [ ] Check whether your Figma Education plan includes Figma Make, and how many AI credits it allows
 - [ ] Ask Quantic in writing whether capstone usability studies need ethics review
 - [ ] Fill in the [participant consent form](participant-consent-form.md) and adapt its recording notice
-- [ ] Put the card sort into the first LinkedIn reader challenge
+- [ ] Put the card sort into module 1's reader challenge
 - [ ] Build the spend-confirmation flow in Figma Make with simulated test money
-- [ ] Plan the email-login wallet build for weeks 7 to 10
+- [ ] Plan the email-login wallet build for modules 7 to 10
 
 ## Caveats
 

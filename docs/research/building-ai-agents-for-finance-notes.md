@@ -1,6 +1,6 @@
 # Building AI Agents for Finance: Reading Notes for Ambition
 
-Nov 3, 2026 · Dayn Kirksey
+Nov 4, 2026 · Dayn Kirksey
 
 *Building AI Agents for Finance* by Hanane Dupouy and Fayssal El Mofatiche (Packt, August 2026, 758 pages) shapes how Ambition's agents spend safely, but it never mentions blockchains, wallets, stablecoins or agent payments. Its central rule is that the model is one component and the system around it is the product, which is exactly Ambition's bet. Page numbers below are the book's own.
 
@@ -28,17 +28,19 @@ Twelve rules from the book change what we build, and most of them come from chap
 | Rule | Pages | In Ambition |
 | --- | --- | --- |
 | Retry reads freely, but never blindly retry an action; protect actions with idempotency keys and, usually, human approval | 625–641 | Balance and price reads retry with backoff; every payment carries an idempotency key, and `SpendConfirmation`'s double-send guard is the human layer |
-| Enforce permissions in the harness, not the prompt | 625–641 | The spending limit lives in the contract and the recipient allow-list in the tool layer, so a fooled model still can't overspend |
-| Secrets never reach the model | 625–641 | Wallet keys are injected at signing time and never appear in prompts, tool descriptions or context |
-| Budgets are risk limits, and "insufficient evidence" is a valid answer | 641–647 | Every agent run has turn and token budgets plus a repeat-call detector, alongside the money limit |
+| Enforce permissions in the harness, not the prompt | 625–641 | The spending limit lives in the agent's smart wallet and the recipient allow-list in a write-back gate that fails closed, so a fooled model or a crashed check still can't overspend (roadmap D-07) |
+| Secrets never reach the model | 625–641 | The wallet key is created inside AWS KMS and signs there, so it never appears in prompts, tool descriptions, context, files or logs (roadmap D-07) |
+| Budgets are risk limits, and "insufficient evidence" is a valid answer | 641–647 | Every agent run has turn and token budgets, a repeat-call detector and a cost ceiling that switches to a cheaper model at 90% and stops at 100%, alongside the money limit (roadmap D-21) |
 | Assign every action an autonomy tier: inform, propose, act with approval, or act and report | 680–685 | The book reserves act-and-report for low-risk, reversible actions, and payments are final, so Ambition makes them low-risk instead: small amounts, a contract-enforced daily limit and money-back escrow. Anything above the limit or to a new recipient moves up to act-with-approval |
 | Guard three points (input, tool output, final output) with allow, block, redact or escalate, running deterministic checks first | 666–680 | x402 payment requests and vendor responses are tool outputs: treat them as data, and check the price against the limit in code before any model sees it |
-| One audit record binds the request, evidence, trace, version, guardrail decisions, conclusion and approver | 509–512, 680–685 | The statements module is that record, anchored by transaction hashes |
-| A version pins the model, prompts, tools and configuration, and a prompt change is a code change | 661–666 | Pin exact model IDs, and hash prompts into a manifest that tags each release |
+| One audit record binds the request, evidence, trace, version, guardrail decisions, conclusion and approver | 509–512, 680–685 | The statements module is that record, anchored by transaction hashes and rebuildable from the chain, and a near-miss log keeps every refused or escalated attempt beside it (roadmap D-10) |
+| A version pins the model, prompts, tools and configuration, and a prompt change is a code change | 661–666 | Every deploy writes a release manifest that pins exact model IDs, prompt hashes, tool versions, contract addresses and limits (roadmap D-13) |
 | Do deterministic work in code, and let the model reason over verified inputs | 239–243, 272–277 | Amounts are strings or big integers, computed in code, never by the model |
-| Evaluate on six dimensions and rank failures by severity, not by weighting alone | 572–617 | Overspending, a wrong recipient or a leaked key are catastrophic and need 100% pass rates; an empty read reported as "no spending" is a trajectory failure, which `MoneyEmptyState` prevents |
+| Evaluate on six dimensions and rank failures by severity, not by weighting alone | 572–617 | Overspending, a wrong recipient or a leaked key are catastrophic and need 100% pass rates in a test-set gate of at least 20 cases, run quickly on every change and fully every night against one bar (roadmap D-11); an empty read reported as "no spending" is a trajectory failure, which `MoneyEmptyState` prevents |
 | Argue both sides before acting: a fraud advocate and a legitimacy advocate on different, equally strong models, each naming its own weaknesses | 466–479, 505–509 | `AgentProposalLabel` can show the agent's stated reason and its weakest point |
-| Start with one agent and good tools, and add agents only for measurable value | 36–37, 412–417 | One agent with tools carries weeks 1 to 12; a second agent appears only if evaluation shows it helps |
+| Start with one agent and good tools, and add agents only for measurable value | 36–37, 412–417 | One agent with tools carries modules 1 to 12, rungs 1 to 3 of the ladder; a second agent appears only if evaluation shows it helps (roadmap D-06) |
+
+A register ID in a row means the rule is now a decision in the [roadmap's Decision Register](../agentic-enterprise-roadmap.md#decision-register), so changing the rule means changing that decision.
 
 ## What the book doesn't cover
 

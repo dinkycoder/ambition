@@ -2,7 +2,7 @@
 
 The style guide, tokens and money components for Ambition. It mirrors the editable Design System artifact; the PDF is in [docs/pdf](../docs/pdf/Ambition%20Design%20System.pdf). Open any `components/<Name>/preview.html` in a browser to see a component, and add `data-theme="dark"` or `data-theme="high-contrast"` to its `<html>` tag to switch themes.
 
-Ambition helps AI builders give their agents money safely, one small win at a time. It is an open-source library, a 12-week Build in Public series on LinkedIn, and an MSAIE capstone. The interface is calm, exact and honest: it shows what will happen to money before anything happens, and it never pressures anyone. Its structure follows Carbon, IBM's open-source design system, with Ambition's own look.
+Ambition helps AI builders give their agents money safely, one small win at a time. It is an open-source library built in public one module at a time, and an MSAIE capstone. The interface is calm, exact and honest: it shows what will happen to money before anything happens, and it never pressures anyone. Its structure follows Carbon, IBM's open-source design system, with Ambition's own look.
 
 ## Principles
 
@@ -63,7 +63,7 @@ Colors are semantic roles with three themes: `light` (the default), `dark` and `
 There are two system font stacks, `font-sans` and `font-mono`, so pages load instantly. A brand display face may come later, for brand pieces only.
 
 - Use `display` once per page at most, `heading-01` for page titles, `heading-02` for sections and `heading-03` for dialog and card titles.
-- Use `body` as the default app text, `body-lg` for explanations in weekly challenges, `label` for field labels, table headers and tags, and `helper` under fields.
+- Use `body` as the default app text, `body-lg` for explanations in reader challenges, `label` for field labels, table headers and tags, and `helper` under fields.
 - Set money in `amount-lg` (the one headline figure on the spending page) or `amount`, always with tabular figures (`font-variant-numeric: tabular-nums`) and always with a unit: "5.000000 USDC".
 - Set wallet addresses and transaction hashes in `code`, in groups of four (`0x71C7 656E … 976F`), with the first and last groups in `text-primary` and the middle in `text-secondary`.
 - Line heights sit on the 4px unit.
@@ -71,8 +71,8 @@ There are two system font stacks, `font-sans` and `font-mono`, so pages load ins
 ## Space, grid and shape
 
 - **Spacing.** Every gap is a spacing token on the 4px unit: `space-4` between an icon and its label, `space-8` inside tags, `space-12` for field padding, `space-16` for card padding on phones, `space-24` for dialog padding on desktop, and `space-32` and up between sections. `space-2` is for hairlines only.
-- **Grid.** Layouts follow Carbon's 2x grid at `bp-sm` (4 columns), `bp-md` (8) and `bp-lg` and up (16), with 16px padding. Weeks 9 to 12 need two layouts only: phone (`bp-sm`) and desktop (`bp-lg`). Set the grid before drawing.
-- **Grid types.** The spending page is hierarchical, with spend against the limit given the largest area. Statements use asymmetric columns, about two-thirds table and one-third detail panel. Weekly challenges use a single manuscript column.
+- **Grid.** Layouts follow Carbon's 2x grid at `bp-sm` (4 columns), `bp-md` (8) and `bp-lg` and up (16), with 16px padding. Modules 9–12 need two layouts only: phone (`bp-sm`) and desktop (`bp-lg`). Set the grid before drawing.
+- **Grid types.** The spending page is hierarchical, with spend against the limit given the largest area. Statements use asymmetric columns, about two-thirds table and one-third detail panel. Reader challenges use a single manuscript column.
 - **Shape and depth.**
   - Corners: `radius-sm` for inputs, `radius-md` for buttons, cards and dialogs, `radius-lg` for large panels, and `radius-pill` for status tags and badges only.
   - Shadow: `shadow-overlay` appears on dialogs and menus only. Dark mode separates surfaces with `layer`, and `high-contrast` separates them with `border-strong`.

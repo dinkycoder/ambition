@@ -1,6 +1,6 @@
 # Ambition Design Guidelines
 
-Nov 2, 2026 · @dinky
+Nov 4, 2026 · @dinky
 
 **These are the rules Ambition's UX agent follows and that any builder may reuse.** The style guide comes before any screen, the base is Carbon with Ambition's own look, a persuasion policy protects consent, and Ambition adds the money components that agent-payments apps need. The guidelines ship in numbered releases with the code, and every do-and-don't pair runs as an automated test.
 
@@ -28,14 +28,14 @@ Some effects justify safeguards rather than tactics. The Cashless Effect makes i
 
 ## Foundations
 
-**The style guide is written in week 8, before the first screen, so every later part inherits it.** Ambition keeps the structure of [Carbon](https://www.carbondesignsystem.com/), IBM's open-source design system, and replaces its look. Screens then behave like a mature system without looking like an IBM product.
+**The style guide is written in module 8, before the first screen, so every later part inherits it.** Ambition keeps the structure of [Carbon](https://www.carbondesignsystem.com/), IBM's open-source design system, and replaces its look. Screens then behave like a mature system without looking like an IBM product.
 
 | Foundation | Rule | From Carbon |
 | --- | --- | --- |
 | Tokens | Stored in the [W3C Design Tokens format](https://www.designtokens.org/) (first stable version, October 2025). Names are roles, such as background, layer, text-primary and support-error, never raw values. | Keep the role names and state rules, translated from Carbon's Sass and JavaScript tokens |
 | Color | OKLCH values in even lightness steps, with light, dark and high-contrast modes switchable while the app runs. Contrast is tested after conversion to standard screen color (sRGB): 4.5:1 for text, 3:1 for large text, icons and focus rings. Red, amber and green mean status only and are never brand colors. Charts use a four-color set or a single hue, never status colors. | Replace every value and skip Carbon's chart order, which puts red and green in series 5 to 7 |
 | Type | System fonts first, for speed, on Carbon's product type scale at weights 400 and 600. A variable font with optical sizing appears only on brand pieces. Every amount uses tabular figures, wallet addresses show in groups of four (0x71C7 656E … 976F), and text is sentence case. | Keep the scale and drop IBM Plex |
-| Spacing and grid | One 4-point unit using Carbon's steps of 4, 8, 12, 16, 24, 32, 40, 48, 64, 80 and 96 px, with 2 px for hairlines only. Carbon's 2x grid has 16 columns on an 8 px unit with breakpoints at 320, 672, 1056, 1312 and 1584 px, but a phone layout and a desktop layout are enough for weeks 9 to 12. Line heights snap to 4 px. Grids are set before any screen is drawn, and breaking one needs a stated reason. | Adopt |
+| Spacing and grid | One 4-point unit using Carbon's steps of 4, 8, 12, 16, 24, 32, 40, 48, 64, 80 and 96 px, with 2 px for hairlines only. Carbon's 2x grid has 16 columns on an 8 px unit with breakpoints at 320, 672, 1056, 1312 and 1584 px, but a phone layout and a desktop layout are enough for modules 9 to 12. Line heights snap to 4 px. Grids are set before any screen is drawn, and breaking one needs a stated reason. | Adopt |
 | Motion | Carbon's productive durations (70, 110, 150 and 240 ms) with its standard, entrance and exit easing. Each money state (pending, confirmed, failed, refunded) has one consistent cue, and all motion stops when the user turns on reduced motion. | Adapt, adding the reduced-motion rule Carbon's motion page leaves out |
 | Icons | An open icon set such as Lucide or Phosphor, and each icon carries the name a screen reader speaks. The verified, spend, refund and test-network icons are reserved for one meaning each. Icons at 16 and 24 px are hand-tuned, not scaled down. | Replace, and use no IBM marks or pictograms |
 | Surfaces | Dark mode shows depth through background layers. High-contrast mode uses borders, because shadows barely show there. | Adapt |
@@ -112,18 +112,18 @@ Any product can re-skin Ambition by supplying its own token values, because the 
 | Escrow refunds | Column grid | Data table, Modal confirmation, Input Feedback, Inline Help Box ("What is escrow?") | Each refund deadline shows as a fixed date and time |
 | Spending alerts | Column grid | Rule Builder ("spend over 5 USDC and vendor not on the allowlist"), Notifications, Settings, Morphing Controls for pausing | Pausing takes one click, resuming needs a confirmation, and alerts are never bundled or timed out |
 | Spend confirmation | One column inside a modal | Preview, Structured Format for the amount and address, Permission Priming on first use, Choice Closure after confirming | Amount, recipient, network, remaining limit and maximum loss stay visible |
-| Weekly challenge pages | Manuscript: one column read top to bottom | Wizard, Steps Left, Inline Help Box, Copy Box for code and addresses, FAQ | Autocomplete never fills addresses or amounts |
+| Reader challenge pages | Manuscript: one column read top to bottom | Wizard, Steps Left, Inline Help Box, Copy Box for code and addresses, FAQ | Autocomplete never fills addresses or amounts |
 
 Charts follow Carbon's data-visualization rules: bars start at zero, lines never bridge missing data, and a single series is labeled directly with no legend.
 
 ## Reader journey
 
-**A reader goes from a LinkedIn post to a first verified test payment in seven steps, and the plan's timer stops at the last one.**
+**A reader goes from a module's notes to a first verified test payment in seven steps, and the plan's timer stops at the last one.**
 
-1. **Walkthrough:** a 60-second clip in the post shows the challenge done with worthless test money.
+1. **Walkthrough:** a 60-second clip in the notes shows the challenge done with worthless test money.
 2. **Welcome Screen:** one button, "Make your first verified test payment."
 3. **Lazy Registration:** no sign-up before the wallet.
-4. **Template Gallery:** the reader opens that week's starter project, which is locked to the test network and keeps key files out of git.
+4. **Template Gallery:** the reader opens that module's starter project, which is locked to the test network and keeps key files out of git.
 5. **Permission Priming:** a plain screen explains the first signature before the wallet asks, and "Not now" gets equal weight.
 6. **Playthrough:** the reader sends the test payment.
 7. **Success State:** the verified transaction appears with its explorer link, and a Suggested Action proposes setting a spending limit.
@@ -143,8 +143,8 @@ Readers never see streak counters, random rewards or leaderboards.
 
 | Stage | What Ambition provides |
 | --- | --- |
-| Get help | Recovery steps for a stuck transaction, a wrong network and a failed signature, an FAQ, GitHub issues for bugs, and a fixed weekly support block within the 8 hours |
-| Expand | A documented path from test money to real money that keeps the same limits, confirmations and alerts, published only after the 12 weeks |
+| Get help | Recovery steps for a stuck transaction, a wrong network and a failed signature, an FAQ, GitHub issues for bugs, and a fixed support block in every module |
+| Expand | A documented path from test money to real money that keeps the same limits, confirmations and alerts, published only after an independent contract audit |
 | End use | Disconnecting the wallet, revoking spending permissions, and exporting statements as CSV |
 
 ## Words
