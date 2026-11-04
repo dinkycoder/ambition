@@ -45,6 +45,21 @@ The 12 weeks cover the first two rungs and the start of the third. A missed gate
 | 11 (Jan 11–16) | Spending alerts: a script that watches the agent's wallet and messages you when it nears its limit or pays a new address, plus a public spending page | My agent warns me before it overspends | Run my alert script on your practice wallet, make a payment that trips it and reply with the link |
 | 12 (Jan 18–23) | The January 26 demo of Ambition version 1, a capstone-style write-up of requirements, design, tests and results, and the week-12 decision | Twelve weeks from zero: Ambition, a free toolkit for giving agents money safely | Install Ambition, or tell me what it should do next |
 
+## Spending limits: build one, then compare
+
+**You write your own spending-limit contract in week 7 because building it teaches the lesson, then you test it against Coinbase's production version in week 8.** Coinbase already offers Spend Permissions on Base, so a builder who only wants a safe agent today can skip your contract, and your post should say so. A permission names who may spend (the spender), which token, the most they may spend (the allowance) and the window it covers, such as a day. One shared contract on the blockchain enforces it, and the owner can cancel it at any time. It runs on Base Sepolia, the same practice network as the rest of this plan, and it works with a smart wallet, an account whose spending rules live in code. That is why it fits the week 8 challenge of granting and then canceling a permission.
+
+| Question | Your week 7 contract | Coinbase Spend Permissions |
+| --- | --- | --- |
+| Who wrote and audited it | You, as a learning build, so treat it as unaudited | Coinbase, as a shared contract deployed on many networks |
+| What it limits | One daily cap per agent | An allowance per window, per token, per spender |
+| How it ends | Owner cancels or lets it lapse | Owner revokes it using the permission's hash, its unique fingerprint, or the end date passes |
+| What a builder learns | How a limit is enforced line by line | How to use a production tool in a few lines |
+
+Compare them on the same task in week 8 and publish the result, including anything Coinbase's version does that yours can't. If it holds up, Ambition's limit editor and spending meter can work with either contract, and you recommend the audited one for anything beyond a testnet.
+
+**Delegation can only narrow.** When one agent hands a task to a helper, the helper receives a slice of the delegator's remaining budget and window, never more, and the slice comes out of the delegator's own allowance so the total can't grow. A buggy or hijacked helper can then lose only what it was given. The same rule runs the other way for the owner: lowering a limit takes effect at once, while raising it needs the owner's explicit confirmation, so a stolen session can't quietly widen its own leash. The idea comes from Sui's October 2026 post on agent authority, whose own tools are still mostly in development, so Ambition borrows the rule and not the blockchain.
+
 ## What we measure
 
 **Only actions count, because likes can't show whether anyone will build.** The targets are starting points, set now so results can't be explained away later.
@@ -124,6 +139,8 @@ Sign in with a [Figma for Education](https://help.figma.com/hc/en-us/articles/36
 - [Satoshi Nakamoto: Bitcoin, A Peer-to-Peer Electronic Cash System (2008)](https://bitcoin.org/bitcoin.pdf)
 - [Locke and Latham: 35 years of goal-setting research](https://med.stanford.edu/content/dam/sm/s-spire/documents/PD.locke-and-latham-retrospective_Paper.pdf)
 - Felix Rieseberg, "How to be more ambitious: A tutorial for humans with models" (October 13, 2026), shared earlier in this project
+- [Coinbase Developer Platform: Spend Permissions](https://docs.cdp.coinbase.com/wallet-api/v2/evm-features/spend-permissions), on enforced allowances, windows and cancellation
+- [Sui Foundation: Give Agents Authority While Keeping Control (Oct 28, 2026)](https://www.sui.io/blog/give-agents-authority-keep-control), the source of the narrow-only delegation rule
 - [Base documentation](https://docs.base.org) for Base Sepolia, faucets and block explorers
 - [Remix](https://remix.ethereum.org), the in-browser editor for your first contracts
 - [Circle testnet faucet](https://faucet.circle.com) for test USDC
