@@ -11,7 +11,7 @@ It grows in modules: agent wallets, x402 payments (Coinbase's standard for agent
 | Path | What it is |
 | --- | --- |
 | [docs/build-in-public-plan.md](docs/build-in-public-plan.md) | The mission, the least-to-most ladder, the 12-week plan, what we measure, the UX agent and the ground rules |
-| [docs/agentic-enterprise-roadmap.md](docs/agentic-enterprise-roadmap.md) | *Building the Agentic Enterprise* (Packt, 2026) mapped onto the 12 weeks and a proposed post-demo research and education desk, plus the starter Decision Register |
+| [docs/agentic-enterprise-roadmap.md](docs/agentic-enterprise-roadmap.md) | *Building the Agentic Enterprise* (Packt, 2026) mapped onto the 12 weeks on AWS, with the AWS architecture, a proposed post-demo research and education desk and the Decision Register |
 | [docs/design-guidelines.md](docs/design-guidelines.md) | Principles and persuasion policy, foundations, brand assets, components, screen patterns, the reader journey, glossary and maintenance |
 | [design-system/](design-system/) | The style guide, design tokens (`tokens.json`, `tokens.css`) and previews of the ten money components |
 | [docs/research/usability-testing-plan.md](docs/research/usability-testing-plan.md) | Research on free and low-cost usability testing (UXtweak, Figma Make and alternatives) and the 12-week testing plan |
