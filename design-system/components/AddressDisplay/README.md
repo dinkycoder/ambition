@@ -9,7 +9,7 @@ Shows a wallet address so a person can check it: split into groups of four, with
 - **Short form.** Shows the saved name and the first and last groups, joined by an ellipsis. Truncation always cuts the middle.
 - **Full form.** Shows every group in `code`. Screen readers read it group by group.
 - **Copy.** Copies the full value. The confirmation message stays put and focus does not move.
-- **Checksum.** Shows "Checksum valid" with a check icon, or an error in words.
+- **Format check.** Shows "Format valid" with a check icon once the address is 0x followed by 64 characters, or an error in words. Sui addresses carry no checksum, so a saved name is the stronger check.
 
 **Do:**
 

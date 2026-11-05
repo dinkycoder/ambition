@@ -2,6 +2,8 @@
 
 Nov 4, 2026 · @dinky
 
+> **Superseded on November 4, 2026** by the [roadmap for agentic commerce on Sui](../roadmap.md). This Base and Solidity roadmap is kept unchanged as the dated record of decisions D-01 to D-26.
+
 ## Summary
 
 **Ambition is now a dateless ladder of twelve modules on AWS, and each rung ends at a gate instead of a date.** It adopts the chapters, disciplines and architecture of *Building the Agentic Enterprise* and replaces the book's Google Cloud stack with AWS. The book follows a fictional firm, ACME Research, as its Macro Research & Education Platform (MREP) grows from one agent into a governed multi-agent platform.
@@ -18,7 +20,7 @@ Two money rules run side by side, because the blockchain spends test money while
 
 ## Roadmap at a glance
 
-![Thirteen chapters on AWS: nine climb rungs 1 to 3, four build the desk](img/agentic-enterprise-roadmap.png)
+![Thirteen chapters on AWS: nine climb rungs 1 to 3, four build the desk](../img/archive/agentic-enterprise-roadmap.png)
 
 Rungs 1 to 3 hold the twelve modules, the book's chapters add checks, and AWS adds the platform they run on. Rung 5 becomes the desk only if rung 3's gate chooses it.
 
@@ -38,7 +40,7 @@ Rungs 1 to 3 hold the twelve modules, the book's chapters add checks, and AWS ad
 | 10. AgentOps and EvalOps | Modules 11–12 | CloudWatch and X-Ray carry the observability signals. The kill switch names each hop it cuts: the spending permission, the agent's schedule and its IAM role. A test-set gate in GitHub Actions runs a quick set on every change and the full set nightly against one pass bar | Catastrophic tests pass 100% on every pull request, and a dated drill stops a test agent within a minute |
 | 13. The reference architecture | Module 12 | The capstone write-up includes the AWS reference architecture, a Well-Architected review and this register, the package a reviewer asks for before backing more work | The rung-3 review shows the architecture, the review and the register |
 
-Rows run in the order their modules start, so chapter 8 comes third and chapter 7 comes before chapter 3. The safety rules from *Building AI Agents for Finance* already in the [reading notes](research/building-ai-agents-for-finance-notes.md) carry on unchanged.
+Rows run in the order their modules start, so chapter 8 comes third and chapter 7 comes before chapter 3. The safety rules from *Building AI Agents for Finance* already in the [reading notes](../research/building-ai-agents-for-finance-notes.md) carry on unchanged.
 
 ## Six habits from the first module
 
@@ -69,7 +71,7 @@ Rows run in the order their modules start, so chapter 8 comes third and chapter 
 
 **Every payment passes a gate in code, a signature inside KMS and the smart wallet's own limit before it settles.** Each job Ambition does gets one managed AWS service, the cloud-native method the curriculum teaches, and no part runs on a server Ambition must patch.
 
-![Every payment passes the guard, the KMS signer and the smart wallet before it settles](img/aws-architecture.png)
+![Every payment passes the guard, the KMS signer and the smart wallet before it settles](../img/archive/aws-architecture.png)
 
 The agent can propose any payment, but only the guard can pass one to the signer, only the signer holds the key, and the wallet refuses anything over its limit.
 
@@ -123,7 +125,7 @@ The desk is Ambition's first serious user. Its agents get money only through Amb
 
 ## The rung-3 decision gets a fifth row
 
-**The desk competes on evidence like every other path, so it enters the plan as one more row of the rung-3 decision table.** The row is part of D-01 and appears in the [build-in-public plan](build-in-public-plan.md).
+**The desk competes on evidence like every other path, so it enters the plan as one more row of the rung-3 decision table.** The row is part of D-01 and appears in the [build-in-public plan](../build-in-public-plan.md).
 
 | If at rung 3's gate… | Then |
 | --- | --- |
@@ -252,8 +254,8 @@ The dollar amounts in D-21 and the 20-case floor in D-11 are starting values, se
 ## Sources
 
 - Jaroslav Pantsjoha, [*Building the Agentic Enterprise*](https://www.oreilly.com/library/view/building-the-agentic/9781807604455/) (Packt, September 2026), the MREP case study, the chapter structure mapped here and the six habits, cited by page
-- Hanane Dupouy and Fayssal El Mofatiche, [*Building AI Agents for Finance*](https://reference-global.com/book/9781837022281) (Packt, 2026), with Ambition's adopted rules in the [reading notes](research/building-ai-agents-for-finance-notes.md)
-- Ambition, [Build in Public: Mission and Ladder](build-in-public-plan.md), the modules, ladder, gates and rung-3 decision this roadmap keeps
+- Hanane Dupouy and Fayssal El Mofatiche, [*Building AI Agents for Finance*](https://reference-global.com/book/9781837022281) (Packt, 2026), with Ambition's adopted rules in the [reading notes](../research/building-ai-agents-for-finance-notes.md)
+- Ambition, [Build in Public: Mission and Ladder](../build-in-public-plan.md), the modules, ladder, gates and rung-3 decision this roadmap keeps
 - Fabian Schär, [Decentralized Finance: On Blockchain- and Smart Contract-Based Financial Markets](https://www.stlouisfed.org/publications/review/2021/02/05/decentralized-finance-on-blockchain-and-smart-contract-based-financial-markets), *Federal Reserve Bank of St. Louis Review*, Second Quarter 2021, pp. 153–74, the source of the five DeFi layers
 - Coinbase Developer Platform, [Spend Permissions](https://docs.cdp.coinbase.com/wallet-api/v2/evm-features/spend-permissions), on allowances a smart wallet enforces on-chain
 - OWASP GenAI Security Project, [OWASP Top 10 for Agentic Applications for 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications/) (December 9, 2025)

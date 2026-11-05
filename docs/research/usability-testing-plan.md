@@ -8,7 +8,7 @@ You can run credible usability studies of Ambition for $0 to $100 by combining f
 
 For Ambition, the core method stays free: moderated think-aloud sessions with five developers per round, recruited from your LinkedIn audience. Figma Make turns a typed prompt into a clickable prototype with working buttons and forms. Testers can therefore complete a "Send 5 test USDC" task with simulated money and no wallet at all.
 
-That shift lets unmoderated tests in UXtweak Free and Lyssna Free cover the spend-confirmation dialog in modules 4 to 5, before the email-login wallet build exists. Free session replay from PostHog or Microsoft Clarity then covers the live testnet app from module 7.
+That shift lets unmoderated tests in UXtweak Free and Lyssna Free cover the spend-confirmation dialog in modules 4 to 5, before the zkLogin build exists. Free session replay from PostHog or Microsoft Clarity then covers the live testnet app from module 7.
 
 ## Tools compared
 
@@ -43,7 +43,7 @@ Results stay viewable for 14 days unless you upgrade, although data is stored fo
 
 **The panel is paid and doesn't target crypto developers.** Buying panel participants needs Business, and UXtweak's own blog says they [start at $10](https://www.uxtweak.com/user-participant-recruitment/). I found no "Web3 developer" filter among its targeting attributes. Bringing your own participants by link costs nothing.
 
-**Wallet extensions are its weak spot.** Website tests need a JavaScript snippet on your site or UXtweak's [Chrome extension](https://chromewebstore.google.com/detail/uxtweak/dagniddgipkffcehffkjgbdobhldacgl?hl=en), which is desktop only ([setup guide](https://www.uxtweak.com/help/website-testing-setup/launching-a-website-testing-study/)). Remote testers can't reach a localhost build, so Ambition needs a public preview URL. Testers would also need a funded wallet on Base Sepolia, which is why the Figma Make prototype (section 2) and email-login wallets (section 5) matter.
+**Wallet extensions are its weak spot.** Website tests need a JavaScript snippet on your site or UXtweak's [Chrome extension](https://chromewebstore.google.com/detail/uxtweak/dagniddgipkffcehffkjgbdobhldacgl?hl=en), which is desktop only ([setup guide](https://www.uxtweak.com/help/website-testing-setup/launching-a-website-testing-study/)). Remote testers can't reach a localhost build, so Ambition needs a public preview URL. Testers would also need a funded wallet on Sui's test network, which is why the Figma Make prototype (section 2) and zkLogin sign-in with sponsored transactions (section 5) matter.
 
 **Its privacy claims are strong but self-reported.** UXtweak says it stores all data in the EU, complies with [GDPR](https://www.uxtweak.com/legal/gdpr-compliance), keeps AI opt-in and "never train\[s\] our models on your data" ([privacy by design](https://www.uxtweak.com/legal/privacy-by-design/)). On Free, an NDA can only be a required "I agree" screening question linking to a PDF, which is weaker than a signature.
 
@@ -95,7 +95,7 @@ The page also lists Maze, UserTesting, Lyssna, Hotjar, Useberry, Lookback and Us
 
 ## 4. Recruiting cheaply
 
-**Your build-in-public audience is the cheapest and best-matched pool you have.** Each module's reader challenge can double as a study link, such as "Take this 3-minute tree test of Ambition's docs." Base and Coinbase developer communities, Farcaster, x402 and agent-builder Discords, hackathon alumni and Quantic classmates add crypto-native and crypto-novice perspectives. Once its snippet is on your site, UXtweak's onsite recruiting widget invites docs visitors for free.
+**Your build-in-public audience is the cheapest and best-matched pool you have.** Each module's reader challenge can double as a study link, such as "Take this 3-minute tree test of Ambition's docs." Sui developer communities and Discord, Farcaster, agent-builder Discords, hackathon alumni and Quantic classmates add crypto-native and crypto-novice perspectives. Once its snippet is on your site, UXtweak's onsite recruiting widget invites docs visitors for free.
 
 **Paid panels are poor value for finding crypto developers.** User Interviews charges $49 per B2C or $98 per B2B session, with incentives billed on top ([pricing](https://www.userinterviews.com/pricing)). Prolific adds a 42.857% fee to participant rewards for companies, or 33.3% for academic accounts, and requires at least $8 an hour, with $12 recommended ([Prolific](https://researcher-help.prolific.com/en/articles/445239-what-is-your-pricing)). Respondent reportedly charges about $40 per B2C and $80 per B2B session, a figure I did not recheck.
 
@@ -110,14 +110,14 @@ Ambition has two groups, AI builders new to crypto and crypto-native developers,
 **Wallets, faucets and signing break most unmoderated tests, so take them out of the test until you are testing them.** There are three ways to do that, in the order the plan uses them. Each removes a step that has nothing to do with the question being asked.
 
 1. **Simulate the money in a Figma Make prototype** (modules 3 to 6). The prototype shows a balance, a confirmation and a final status with no wallet, so any tester can finish the task unmoderated.
-2. **Pre-fund wallets for moderated sessions** (modules 5 to 10). [Circle's faucet](https://faucet.circle.com/) gives 20 test USDC on Base Sepolia per address every 2 hours with no account. [Coinbase's faucet](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/faucets/request-funds-on-evm-test-networks) gives 1 USDC per request, up to 10 a day, and needs an account, so fund wallets the day before.
-3. **Use email-login wallets for unmoderated tests of the live app** (modules 7 to 11). [Coinbase's embedded wallets](https://docs.cdp.coinbase.com/embedded-wallets/welcome) let people sign in by email or social login, with the first 5,000 operations a month free ([pricing](https://docs.cdp.coinbase.com/embedded-wallets/pricing)). On Base Sepolia, the [CDP SDK](https://www.npmjs.com/package/@coinbase/cdp-sdk) makes user operations gasless by default, so testers need no extension and no test ETH.
+2. **Pre-fund wallets for moderated sessions** (modules 5 to 10). [Circle's faucet](https://faucet.circle.com/) gives 20 test USDC on Sui's test network per address every 2 hours with no account. [Sui's faucet](https://docs.sui.io/guides/developer/getting-started/get-coins) gives test SUI but limits how often each address may ask, so fund wallets the day before.
+3. **Use zkLogin and sponsored transactions for unmoderated tests of the live app** (modules 7 to 11). [zkLogin](https://docs.sui.io/concepts/cryptography/zklogin) lets people create a Sui wallet by signing in with Google, Facebook, Twitch or Apple on the test network, and Ambition's gas station pays their fees through [sponsored transactions](https://docs.sui.io/concepts/transactions/sponsored-transactions), so testers need no extension and no test SUI.
 
 **The confirmation screen deserves the most testing.** MetaMask's design team found that [70 to 90% of all user actions](https://github.com/MetaMask/Design/issues/80) happen on or around the Confirm screen. That makes Ambition's spend-confirmation dialog the highest-leverage screen, and the first one to build in Figma Make.
 
 **Use the published web3 heuristics as your review checklist.** ethereum.org lists [seven web3 heuristics](https://ethereum.org/developers/docs/design-and-ux/heuristics-for-web3/), such as "feedback follows action" and "understandable terminology", to use alongside Nielsen's ten. A [systematic review](https://arxiv.org/pdf/2204.10857) found that crypto wallets generally lack proven good usability and that hardly any studies test improvements. A widely repeated claim that 55% of users abandon wallet setup has no traceable source, so don't cite it.
 
-**Test the developer side with a timed first task.** Give a developer the README and ask them to make an agent wallet pay a test x402 endpoint while thinking aloud and sharing their screen and terminal. Time it, count the times they get stuck, and note every error message they hit. Then show them a raw error and ask what they would do next, which tests the message itself.
+**Test the developer side with a timed first task.** Give a developer the README and ask them to make an agent wallet pay Ambition's test paid service while thinking aloud and sharing their screen and terminal. Time it, count the times they get stuck, and note every error message they hit. Then show them a raw error and ask what they would do next, which tests the message itself.
 
 ## 6. Ethics and consent
 
@@ -133,7 +133,7 @@ Ambition has two groups, AI builders new to crypto and crypto-native developers,
 
 Ambition's plan runs seven phases across modules 1 to 12 and ends with Ambition version 1 at rung 3. Each phase starts when its module does, so the plan carries no dates until the capstone course sets them. The Figma Make prototype moves the first unmoderated test of a complete payment from modules 10 to 11 up to modules 4 to 5. Following Figma's Predict step, every human round starts only after an AI audit of contrast, hierarchy, dead ends and error states passes.
 
-The modules 4–5 row is the change from the first plan: testers complete a payment with simulated money on the Make prototype six modules before email-login wallets exist.
+The modules 4–5 row is the change from the first plan: testers complete a payment with simulated money on the Make prototype six modules before zkLogin sign-in exists.
 
 | Modules | Method | Tool | Participants | Cost | What it answers |
 | --- | --- | --- | --- | --- | --- |
@@ -141,8 +141,8 @@ The modules 4–5 row is the change from the first plan: testers complete a paym
 | 3–4 | Tree test of docs navigation; build the Make prototype of the spend confirmation, limit editor and spend meter with simulated test money; AI audit | UXtweak Free; Figma Make; Carbon code audit and contrast checker | 10 | $0 | Can readers find the quickstart and the limit settings? Does the prototype pass the audit? |
 | 4–5 | First-click and 5-second tests on prototype screens; unmoderated "Send 5 test USDC" task on the Make prototype | Lyssna Free (15), UXtweak Free (3), Figma view-only link | 15–18 | $0 | Do people see the amount, recipient, network and finality before they confirm? |
 | 5–7 | Moderated think-aloud, round 1, on the prototype and the quickstart, with a timed first task | Video call recorded locally; FigJam for observers and notes | 5 developers | $0–$125 | Where do developers get stuck on the way to a first payment? |
-| 7–10 | Live testnet app with session replay and an in-app survey; moderated round 2 with pre-funded or email-login wallets; AI audit first | PostHog Free or Clarity; Circle faucet; Coinbase embedded wallets | 5 developers plus all visitors | $0–$125 | Do round 1's fixes hold up with real test transactions? |
-| 10–11 | System Usability Scale (SUS) survey after tasks; unmoderated website test once email-login wallets are live | PostHog surveys or Google Forms; UXtweak | 10–20 | $0 | How usable is Ambition overall, as one score for the rung-3 review? |
+| 7–10 | Live testnet app with session replay and an in-app survey; moderated round 2 with pre-funded or zkLogin wallets; AI audit first | PostHog Free or Clarity; Circle faucet; zkLogin and sponsored transactions | 5 developers plus all visitors | $0–$125 | Do round 1's fixes hold up with real test transactions? |
+| 10–11 | System Usability Scale (SUS) survey after tasks; unmoderated website test once zkLogin sign-in is live | PostHog surveys or Google Forms; UXtweak | 10–20 | $0 | How usable is Ambition overall, as one score for the rung-3 review? |
 | 12 | Fix round, quick re-test of the top 3 issues, findings published with module 12 | Same tools | 3–5 | $0 | Did the top problems go away? |
 
 Each round mixes the two groups, AI builders new to crypto and crypto-native developers, with 3 to 5 of each in the moderated rounds. An optional synthetic-user pass can check structure before rounds 1 and 2, but it never replaces a participant. Each round's notes and decisions go into a FigJam board and the design system's decision log, and the findings are published with that module's notes.
@@ -165,7 +165,7 @@ The plan works at $0, and money mainly buys fairer thank-yous rather than better
 - [ ] Fill in the [participant consent form](participant-consent-form.md) and adapt its recording notice
 - [ ] Put the card sort into module 1's reader challenge
 - [ ] Build the spend-confirmation flow in Figma Make with simulated test money
-- [ ] Plan the email-login wallet build for modules 7 to 10
+- [ ] Plan the zkLogin and gas-station build for modules 7 to 10
 
 ## Caveats
 
@@ -206,9 +206,9 @@ Figma's guide is undated and lists no prices. I couldn't confirm that your Educa
 - [Nielsen Norman Group: Why you only need to test with 5 users](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/)
 - [Nielsen Norman Group: Unmoderated user testing tools](https://www.nngroup.com/articles/unmoderated-user-testing-tools/)
 - [Circle: Testnet faucet](https://faucet.circle.com/)
-- [Coinbase: Faucets on EVM test networks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/faucets/request-funds-on-evm-test-networks)
-- [Coinbase: Embedded wallets](https://docs.cdp.coinbase.com/embedded-wallets/welcome)
-- [Coinbase: Embedded wallets pricing](https://docs.cdp.coinbase.com/embedded-wallets/pricing)
+- [Sui documentation: Get coins](https://docs.sui.io/guides/developer/getting-started/get-coins)
+- [Sui documentation: zkLogin](https://docs.sui.io/concepts/cryptography/zklogin)
+- [Sui documentation: Sponsored transactions](https://docs.sui.io/concepts/transactions/sponsored-transactions)
 - [npm: @coinbase/cdp-sdk](https://www.npmjs.com/package/@coinbase/cdp-sdk)
 - [MetaMask Design: Confirmation screen issue](https://github.com/MetaMask/Design/issues/80)
 - [ethereum.org: Heuristics for web3](https://ethereum.org/developers/docs/design-and-ux/heuristics-for-web3/)

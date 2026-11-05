@@ -34,7 +34,7 @@ Some effects justify safeguards rather than tactics. The Cashless Effect makes i
 | --- | --- | --- |
 | Tokens | Stored in the [W3C Design Tokens format](https://www.designtokens.org/) (first stable version, October 2025). Names are roles, such as background, layer, text-primary and support-error, never raw values. | Keep the role names and state rules, translated from Carbon's Sass and JavaScript tokens |
 | Color | OKLCH values in even lightness steps, with light, dark and high-contrast modes switchable while the app runs. Contrast is tested after conversion to standard screen color (sRGB): 4.5:1 for text, 3:1 for large text, icons and focus rings. Red, amber and green mean status only and are never brand colors. Charts use a four-color set or a single hue, never status colors. | Replace every value and skip Carbon's chart order, which puts red and green in series 5 to 7 |
-| Type | System fonts first, for speed, on Carbon's product type scale at weights 400 and 600. A variable font with optical sizing appears only on brand pieces. Every amount uses tabular figures, wallet addresses show in groups of four (0x71C7 656E … 976F), and text is sentence case. | Keep the scale and drop IBM Plex |
+| Type | System fonts first, for speed, on Carbon's product type scale at weights 400 and 600. A variable font with optical sizing appears only on brand pieces. Every amount uses tabular figures, wallet addresses show in groups of four (0x8f3a 2c91 … 7d04), and text is sentence case. | Keep the scale and drop IBM Plex |
 | Spacing and grid | One 4-point unit using Carbon's steps of 4, 8, 12, 16, 24, 32, 40, 48, 64, 80 and 96 px, with 2 px for hairlines only. Carbon's 2x grid has 16 columns on an 8 px unit with breakpoints at 320, 672, 1056, 1312 and 1584 px, but a phone layout and a desktop layout are enough for modules 9 to 12. Line heights snap to 4 px. Grids are set before any screen is drawn, and breaking one needs a stated reason. | Adopt |
 | Motion | Carbon's productive durations (70, 110, 150 and 240 ms) with its standard, entrance and exit easing. Each money state (pending, confirmed, failed, refunded) has one consistent cue, and all motion stops when the user turns on reduced motion. | Adapt, adding the reduced-motion rule Carbon's motion page leaves out |
 | Icons | An open icon set such as Lucide or Phosphor, and each icon carries the name a screen reader speaks. The verified, spend, refund and test-network icons are reserved for one meaning each. Icons at 16 and 24 px are hand-tuned, not scaled down. | Replace, and use no IBM marks or pictograms |
@@ -62,7 +62,7 @@ Any product can re-skin Ambition by supplying its own token values, because the 
 
 | Need | Carbon component | Change for money |
 | --- | --- | --- |
-| Statements and refunds | Data table: sort, filter, search, expandable rows, batch actions, zebra rows | Amounts align on the decimal point, pages are labeled by month, and an expanded row shows the transaction hash and block |
+| Statements and refunds | Data table: sort, filter, search, expandable rows, batch actions, zebra rows | Amounts align on the decimal point, pages are labeled by month, and an expanded row shows the transaction digest and checkpoint |
 | Spend confirmation | Danger modal, with a structured list for the summary | Cancel sits on the left with first focus, overriding Carbon's default. The primary button names the action and amount, such as "Send 5 test USDC". Esc always means cancel. |
 | Payment progress | Inline loading | Separate "sent" and "confirmed" states, with the button disabled until the payment finishes, so a second click can't send twice |
 | Alerts and results | Inline and actionable notifications | Failures and spending alerts stay until dismissed, and no money message disappears on a timer |
@@ -74,7 +74,7 @@ Any product can re-skin Ambition by supplying its own token values, because the 
 **Ambition builds nine money components:**
 
 - **Amount input:** a text field with its unit, six decimals and no stepper, which shows the value back for confirmation.
-- **Address display:** groups of four with the first and last groups highlighted, a checksum check, a copy button, the full value on request, and output a screen reader can read.
+- **Address display:** groups of four with the first and last groups highlighted, a format check (0x and 64 characters), a copy button, the full value on request, and output a screen reader can read.
 - **Transaction status:** submitted, confirming, final, failed and refunded, each with its own shape, icon and label.
 - **Spend meter:** spend against a daily limit that resets.
 - **Limit editor:** the sentence "Let \[agent\] spend \[5\] USDC per \[day\]".
@@ -154,7 +154,7 @@ Readers never see streak counters, random rewards or leaderboards.
 | Term | Meaning | Never say |
 | --- | --- | --- |
 | Wallet | An account on the blockchain, controlled by a secret key | Account |
-| Test money | Free tokens on Base Sepolia with no real value | Free money |
+| Test money | Free tokens on Sui's test network with no real value | Free money |
 | USDC | A digital dollar, backed one-for-one by real dollars | Coin |
 | Agent | An AI program that acts on its own, such as paying for data | Bot |
 | Spending limit | The most an agent may spend in a day, enforced by a contract | Budget, cap |
@@ -168,7 +168,7 @@ Readers never see streak counters, random rewards or leaderboards.
 
 - **Buttons:** they name the action and the amount, such as "Send 5 test USDC" or "Refund 2 test USDC," and never just "OK," "Submit" or "Done."
 - **The way out:** it is always "Cancel," never "Decline," "No thanks" or a guilt line.
-- **Test-money notice:** every money screen says "Test money on Base Sepolia" until real money is allowed.
+- **Test-money notice:** every money screen says "Test money on Sui testnet" until real money is allowed.
 - **Errors:** they say what happened and what to do next, in words as well as color.
 - **Style:** sentence case, digits for numbers, and a unit on every amount.
 - **Metaphors:** each one says where it breaks, for example "escrow works like a referee holding the money, but unlike a card payment there is no chargeback."
