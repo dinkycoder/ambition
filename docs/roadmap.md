@@ -122,7 +122,7 @@ The MSAIE's Cloud Applications and Architectures specialization supplies AWS, an
 
 ## Decision Register
 
-**Eighteen decisions make up the register, all accepted on November 4, 2026.** Their P prefix comes from the proposal they were approved in and keeps them apart from the earlier D-01 to D-26, which live in the dated record. The book's own register holds fifteen rows and warns that more than thirty means decisions are being argued again, so a new decision takes the next ID, P-19, and changes to an old one edit its row.
+**Nineteen decisions make up the register: eighteen accepted on November 4, 2026, and P-19 on November 6.** Their P prefix comes from the proposal they were approved in and keeps them apart from the earlier D-01 to D-26, which live in the dated record. The book's own register holds fifteen rows and warns that more than thirty means decisions are being argued again, so a new decision takes the next ID, P-20, and changes to an old one edit its row.
 
 | ID | Decision | Status | Why | Revisit when |
 | --- | --- | --- | --- | --- |
@@ -144,6 +144,7 @@ The MSAIE's Cloud Applications and Architectures specialization supplies AWS, an
 | P-16 | Keep the Ambition name and its public repository, with the GitLab mirror and the MIT License unchanged | Accepted | The mission still fits, and keeping the name keeps the repository, its history and readers' links intact | Only if the mission changes |
 | P-17 | The paid service uses Sui's own payment flow, not a third-party x402 package | Accepted | x402 has no official Sui implementation, while Sui's own flow settles a payment and its receipt in one transaction with no outside code | If an official x402 implementation for Sui appears |
 | P-18 | Apply for a Sui grant or request for proposals, and for the next academic research award Sui announces, whether the 2026 or the 2027 round | Accepted | A grant can fund the build and an independent audit, and the 2025 award program has ended with no next round announced | When Sui announces the next award round |
+| P-19 | The research desk's multi-agent stage is a committee of eight, after the research engine in *Building the Agentic Enterprise*: a Research Director; four specialists, the Market Analyst, the Sector Specialist, an economist of agent markets (the book's Macro Economist, retooled) and a new on-chain payments analyst; a Findings Generator in place of the Thesis Generator; the Compliance Agent; and a Report Writer. The economist studies prices, market power, concentration, fragility and adoption, takes labor and productivity from primary research and official statistics, and checks every market-size claim before using it. The payments analyst reads Sui first and other rails on the same scorecard (P-04). The per-run cost ceiling rises to fit the fourth specialist, at an amount set from each agent's measured cost | Accepted | Agentic commerce raises economy-wide questions as well as on-chain ones, and one specialist per data domain can be costed, tested and failed on its own | When the agent specifications set each agent's module and cost |
 
 ## Plain-language terms
 
