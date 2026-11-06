@@ -18,7 +18,9 @@ It grows in modules: agent wallets, Move packages on Sui's test network, spendin
 | [docs/research/usability-testing-plan.md](docs/research/usability-testing-plan.md) | Research on free and low-cost usability testing (UXtweak, Figma Make and alternatives) and the testing plan by module |
 | [docs/research/participant-consent-form.md](docs/research/participant-consent-form.md) | The consent form every usability-study participant reads and signs, covering recordings, data protection and their rights |
 | [docs/research/building-ai-agents-for-finance-notes.md](docs/research/building-ai-agents-for-finance-notes.md) | Reading notes on *Building AI Agents for Finance* (Packt, 2026): the rules from the book that Ambition adopts, with page numbers |
-| [docs/pdf/](docs/pdf/) | PDF versions of the plan, the roadmap and Decision Register, the guidelines, the design system, the testing plan, the consent form and the reading notes |
+| [docs/research/research-engine-agent-specs.md](docs/research/research-engine-agent-specs.md) | Specifications for the research desk's eight agents (P-19): the order they join the ladder, their sources, tools, gate tests, failure modes and cost per run, and the proposed per-run ceiling |
+| [docs/research/research-engine-research-report.md](docs/research/research-engine-research-report.md) | The full research behind those specifications, with every source and every page that could not be opened |
+| [docs/pdf/](docs/pdf/) | PDF versions of the plan, the roadmap and Decision Register, the guidelines, the design system, the testing plan, the consent form, the reading notes and the research engine specifications |
 
 Code arrives module by module, starting with the agent wallet in module 1.
 
