@@ -1,6 +1,6 @@
 # Ambition Roadmap and Decision Register
 
-Nov 4, 2026 · @dinky
+Nov 6, 2026 · @dinky
 
 ## Summary
 
@@ -10,7 +10,7 @@ The platform has three parts that feed each other. The toolkit gives an agent a 
 
 Sui carries the build because its base layer already does what agent payments need. One transaction can settle several steps at once, a spending limit can be an object the agent holds, and beginners can sign in and pay without buying gas. The research stays neutral anyway, because a referee that favors its own rail would lose the trust that makes its briefs worth buying.
 
-**Every decision below was accepted on November 4, 2026.** This roadmap replaces the earlier Base and Solidity roadmap, which is kept unchanged as a [dated record](archive/agentic-enterprise-roadmap-2026-11-04.md) of its decisions, D-01 to D-26. The plan stays dateless, and dates return when the capstone course begins (P-15).
+**Every decision below was accepted on November 4, 2026, except P-19 to P-22, accepted on November 6, 2026.** This roadmap replaces the earlier Base and Solidity roadmap, which is kept unchanged as a [dated record](archive/agentic-enterprise-roadmap-2026-11-04.md) of its decisions, D-01 to D-26. The plan stays dateless, and dates return when the capstone course begins (P-15).
 
 ## Why this platform
 
@@ -30,7 +30,7 @@ The stablecoin angle survives inside the winning path. Ambition studies, teaches
 
 | Part | What it does | The Sui features it uses |
 | --- | --- | --- |
-| Toolkit | Gives an agent a wallet whose key never leaves AWS KMS, a spending cap it holds as an object, payments that settle together with their receipts, escrow with automatic refunds, alerts and statements | Move objects for the spending cap, programmable transaction blocks (up to 1,024 steps that all succeed or all fail), gasless stablecoin transfers, and Mysten's AWS KMS signer |
+| Toolkit | Gives an agent a wallet whose key never leaves Cloud KMS, a spending cap it holds as an object, payments that settle together with their receipts, escrow with automatic refunds, alerts and statements | Move objects for the spending cap, programmable transaction blocks (up to 1,024 steps that all succeed or all fail), gasless stablecoin transfers, and Mysten's Google Cloud KMS signer |
 | Research desk | Buys public data with the toolkit and publishes cited briefs that score each rail and stablecoin on the same scorecard. It covers risk, safety and how-to, never price calls or personal recommendations | The toolkit's own payments, so every brief is also a live test; Walrus to store the cited library and Seal to control who reads paid briefs, if the desk needs them |
 | Education | Turns each module into a plain-language lesson and a reader challenge that leaves public proof on the test network | zkLogin, so a beginner signs in with a familiar login, and sponsored transactions, so a reader's first payment needs no SUI for gas |
 
@@ -46,24 +46,24 @@ Rungs 1 to 3 hold the twelve modules. Rung 5 is the platform's destination rathe
 
 ## Modules 1 to 12 in Move
 
-**Move starts in module 1, so every module ships a Move package on Sui's test network as well as a lesson.** Each module is done when its check passes, and the order follows The Move Book: objects first, then coins, then the patterns that make agent payments safe. AWS joins in module 1 with a small foundation and adds one service at a time.
+**Move starts in module 1, so every module ships a Move package on Sui's test network as well as a lesson.** Each module is done when its check passes, and the order follows The Move Book: objects first, then coins, then the patterns that make agent payments safe. Google Cloud joins in module 1 with a small foundation and adds one service at a time.
 
-| Module | What it builds on Sui | Reader challenge | What runs on AWS |
+| Module | What it builds on Sui | Reader challenge | What runs on Google Cloud |
 | --- | --- | --- | --- |
-| 1 | An agent wallet whose key is created in AWS KMS, and a first Move package published to the test network | Get test SUI from the faucet, call the package and reply with the transaction link | Account guardrails and a budget alarm; the agent's key in KMS; a first Lambda that the CDK deploys from GitHub Actions through OIDC, writing the first release manifest |
-| 2 | A statement: a script that reads the agent's activity and explains what an object and a checkpoint are | Find your transaction's checkpoint and reply with its number | An indexer Lambda reads the agent's transactions by checkpoint and writes the statement index to DynamoDB |
-| 3 | A shared registry object where agents list a name and a price per request | Add an entry; each one is public proof | No new service, because the registry lives on Sui; the CDK stack gains its first tests |
-| 4 | Test USDC from Circle's faucet and a payment from the agent to another wallet | Send 1 test USDC between two of your own wallets and reply with the link | A TypeScript signer Lambda signs through Mysten's KMS signer behind a first write-back gate that fails closed, and EventBridge Scheduler starts each run |
+| 1 | An agent wallet whose key is created in Cloud KMS, and a first Move package published to the test network | Get test SUI from the faucet, call the package and reply with the transaction link | Account guardrails and a Cloud Billing budget alert; the agent's key in Cloud KMS; a first Cloud Run service that Terraform deploys from GitHub Actions through Workload Identity Federation, writing the first release manifest |
+| 2 | A statement: a script that reads the agent's activity and explains what an object and a checkpoint are | Find your transaction's checkpoint and reply with its number | An indexer Cloud Run service reads the agent's transactions by checkpoint and writes the statement index to Firestore |
+| 3 | A shared registry object where agents list a name and a price per request | Add an entry; each one is public proof | No new service, because the registry lives on Sui; the Terraform stack gains its first tests |
+| 4 | Test USDC from Circle's faucet and a payment from the agent to another wallet | Send 1 test USDC between two of your own wallets and reply with the link | A TypeScript signer on Cloud Run signs through Mysten's Cloud KMS signer behind a first write-back gate that fails closed, and Cloud Scheduler starts each run through Cloud Workflows |
 | 5 | A spending cap the agent holds as an object, with a budget, an expiry and an allowed-recipient list that the owner can suspend or revoke | Grant, then revoke, a cap and reply with the revocation | The gate checks the cap before signing, refused attempts go to the near-miss log, and the kill-switch runbook names its steps |
-| 6 | A paid service and a payment that settles with its receipt in one transaction, using Sui's own payment flow | Pay the service once and reply with the receipt object | The service runs on API Gateway and Lambda; the agent's loop calls Claude through Bedrock with a traffic-class tag and a per-run ceiling; the test set starts with 20 cases |
-| 7 | Gasless stablecoin payments and sponsored transactions, so the agent and a new reader both pay without holding SUI | Make a first payment with zkLogin and a sponsored transaction | A sponsor Lambda with its own KMS key runs a gas station that pays readers' gas within a capped budget |
+| 6 | A paid service and a payment that settles with its receipt in one transaction, using Sui's own payment flow | Pay the service once and reply with the receipt object | The service runs on Apigee and Cloud Run; the agent's loop calls Gemini through Vertex AI with a traffic-class tag and a per-run ceiling; the test set starts with 20 cases |
+| 7 | Gasless stablecoin payments and sponsored transactions, so the agent and a new reader both pay without holding SUI | Make a first payment with zkLogin and a sponsored transaction | A sponsor Cloud Run service with its own Cloud KMS key runs a gas station that pays readers' gas within a capped budget |
 | 8 | Tests, a security checklist and a first kill-switch drill; the module-5 cap is compared with OpenZeppelin's spend vault for Sui | Try to overspend a test cap and reply with the failed transaction | An IAM review, the OWASP agentic-risk mapping, a first Well-Architected review and the first dated drill |
-| 9 | Agent version 1: buys data, stays under its cap and logs every payment and refusal | Call the paid service from your own code | X-Ray traces every run, and the spending audit comes from CloudWatch Logs Insights |
-| 10 | Escrow as an object that holds payment until delivery and refunds after a deadline | Pay into escrow, let the deadline pass and reply with your refund | The deadline lives in the Move object, and a one-time EventBridge Scheduler schedule claims the refund once it passes |
-| 11 | Alerts and a public spending page | Trip an alert on your practice wallet and reply with the link | DynamoDB Streams trigger an alert Lambda that emails through SNS, and CloudFront serves the page from a private S3 bucket |
-| 12 | Ambition version 1, a capstone-style write-up and the first published scorecard brief | Read the brief and score one rail or stablecoin yourself | The architecture diagram, the Well-Architected review, a cost report from AWS Cost Explorer and the rung-3 gate review |
+| 9 | Agent version 1: buys data, stays under its cap and logs every payment and refusal | Call the paid service from your own code | Cloud Trace follows every run, and the spending audit comes from Cloud Logging and a BigQuery export |
+| 10 | Escrow as an object that holds payment until delivery and refunds after a deadline | Pay into escrow, let the deadline pass and reply with your refund | The deadline lives in the Move object, and a one-time Cloud Scheduler job claims the refund once it passes |
+| 11 | Alerts and a public spending page | Trip an alert on your practice wallet and reply with the link | Firestore change events reach an alert Cloud Run service through Eventarc, which emails through a Cloud Monitoring notification channel; Firebase Hosting serves the public page |
+| 12 | Ambition version 1, a capstone-style write-up and the first published scorecard brief | Read the brief and score one rail or stablecoin yourself | The architecture diagram, the Google Cloud Architecture Framework review, a cost report from Cloud Billing and the BigQuery billing export, and the rung-3 gate review |
 
-The research desk starts small inside module 12 rather than waiting for a later rung. That way the first scorecard is tested by readers before the desk grows into the multi-agent research operation in rung 5. **Readers never need an AWS account,** because every challenge happens on Sui's test network.
+The research desk starts small inside module 12 rather than waiting for a later rung. That way the first scorecard is tested by readers before the desk grows into the multi-agent research operation in rung 5. **Readers never need a Google Cloud account,** because every challenge happens on Sui's test network.
 
 ## The rail-neutral scorecard
 
@@ -90,39 +90,39 @@ Each brief scores one rail or stablecoin against these questions, cites a source
 | --- | --- | --- | --- |
 | Release manifest | Every deploy writes one file naming the model ID, prompt hashes, tool and library versions, Move package IDs and caps, and every statement line names the manifest it ran under | Module 1 | pp. 421–425 |
 | Write-back gate that fails closed | Nothing the agent proposes reaches the signer until the gate passes it, and an error, a timeout or a missing record counts as no (P-06) | Module 4, complete in module 5 | pp. 303–304, 692 |
-| Kill switch with named steps | The runbook names each step the switch takes: revoke the spending cap, pause the schedule and deny the agent's IAM role. A drill at every rung gate from rung 2 on, dated in the log, proves it still stops a test agent within a minute | Module 5, first drill in module 8 | pp. 524, 707 |
-| Test-set gate | The test set holds at least 20 cases. A quick set runs on every change and the full set nightly, against one pass bar, and overspending, a wrong recipient or a leaked key must pass 100% | Module 6 | pp. 605, 705 |
+| Kill switch with named steps | The runbook names each step the switch takes: revoke the spending cap, pause the schedule and deny the agent's service account, and the same flag stops the gateway (P-22). A drill at every rung gate from rung 2 on, dated in the log, proves it still stops a test agent within a minute | Module 5, first drill in module 8 | pp. 524, 707 |
+| Test-set gate | The test set holds at least 20 cases from module 6. From rung 5 it grows to a 50-query smoke set on every commit and a golden set of 200 or more queries nightly on Google Cloud's Batch tier, against one pass bar of 0.90, and overspending, a wrong recipient or a leaked key must pass 100% | Module 6 | pp. 605, 705 |
 | Near-miss log | Every payment the gate refused or sent for approval is logged with its reason, because a near miss is the cheapest warning a system gives | Module 5 | p. 467 |
 | Cost tags and a per-run ceiling | Every model call carries a traffic-class tag, such as agent run, test set or reader service. At 90% of a run's ceiling the agent switches to a cheaper model, and at 100% the run stops | Module 6 | pp. 411, 518 |
 
-## The architecture on AWS and Sui
+## The architecture on Google Cloud and Sui
 
-**Every payment passes a gate in code, a signature inside KMS and the spending cap's own check on Sui before it settles.** AWS runs the agent, its keys and its records, while Sui holds the money and the rules that must never be edited (P-11, P-12).
+**Every payment passes a gate in code, a signature inside Cloud KMS and the spending cap's own check on Sui before it settles.** Google Cloud runs the agent, its keys and its records, while Sui holds the money and the rules that must never be edited (P-11, P-20).
 
 ![Every payment passes the gate, the KMS signer and the spending cap before it settles on Sui](img/architecture.png)
 
 The agent can propose any payment, but only the gate can pass one to the signer, only the signer holds the key, and the cap object refuses anything over its budget. The agent runs in Python and the signer in TypeScript, because Sui's official SDK and Mysten's KMS signer are TypeScript (P-09).
 
-**The design answers each of AWS's six Well-Architected pillars with a named control, and the rung-3 review checks them again.**
+**The design answers each pillar of Google Cloud's Architecture Framework with a named control, and the rung-3 review checks them again.**
 
 | Pillar | Ambition's answer |
 | --- | --- |
-| Operational excellence | Only GitHub Actions deploys, through the CDK stack; every deploy writes a release manifest, every run writes a structured log, and the kill switch is drilled at every rung gate from rung 2 on |
-| Security | One least-privilege role per Lambda, a wallet key that signs only inside KMS, a spending cap that Sui enforces on its own, OIDC instead of stored keys, and a protected root login |
-| Reliability | Lambda and DynamoDB run across several Availability Zones; reads retry with backoff, payments never retry blindly, the gate fails closed, and the index can be rebuilt from Sui |
-| Performance efficiency | Each function gets its own memory size, and DynamoDB reads by wallet address, its fastest kind of lookup |
-| Cost optimization | Lambda and DynamoDB stay inside their always-free allowances, every run stops at its cost ceiling, the gas station's budget is capped, and AWS Budgets alerts and then blocks the agent's roles |
-| Sustainability | Nothing runs while idle, and DynamoDB TTL clears stale records |
+| Operational excellence | Only GitHub Actions deploys, through the Terraform stack; every deploy writes a release manifest, every run writes a structured log, and the kill switch is drilled at every rung gate from rung 2 on |
+| Security | One least-privilege service account per Cloud Run service, a wallet key that signs only inside Cloud KMS, a spending cap that Sui enforces on its own, Workload Identity Federation instead of stored keys, and a protected root login |
+| Reliability | Cloud Run and Firestore run across several zones; reads retry with backoff, payments never retry blindly, the gate fails closed, and the index can be rebuilt from Sui |
+| Performance efficiency | Each service gets its own memory and CPU, and Firestore reads by wallet address, its fastest kind of lookup |
+| Cost optimization | Cloud Run and Firestore stay within their free quotas, every run stops at its cost ceiling, the gas station's budget is capped, and Cloud Billing budgets alert and then trigger the block through the P-22 function |
+| Sustainability | Nothing runs while idle, and Firestore TTL policies clear stale records |
 
 ## Books and curriculum
 
 **The books supply disciplines, not the case study.** *Building the Agentic Enterprise* supplies the register, the gates and the six habits, cited by page. *Building AI Agents for Finance* supplies the agent safety rules in the [reading notes](research/building-ai-agents-for-finance-notes.md). The Move Book and Sui's documentation supply Move and Sui.
 
-The MSAIE's Cloud Applications and Architectures specialization supplies AWS, and its Blockchain specialization supplies the DeFi risks the scorecard checks. No book or course material goes into Git, because the books' and course's copyright and the Student Code of Conduct bar sharing them, so every fact here cites a public source (P-14).
+The MSAIE's Cloud Applications and Architectures specialization supplies the cloud discipline, and the cloud is now Google Cloud, which the book's reference build uses (P-20). Its Blockchain specialization supplies the DeFi risks the scorecard checks. No book or course material goes into Git, because the books' and course's copyright and the Student Code of Conduct bar sharing them, so every fact here cites a public source (P-14).
 
 ## Decision Register
 
-**Nineteen decisions make up the register: eighteen accepted on November 4, 2026, and P-19 on November 6.** Their P prefix comes from the proposal they were approved in and keeps them apart from the earlier D-01 to D-26, which live in the dated record. The book's own register holds fifteen rows and warns that more than thirty means decisions are being argued again, so a new decision takes the next ID, P-20, and changes to an old one edit its row.
+**Twenty-two decisions make up the register: eighteen accepted on November 4, 2026, and P-19 to P-22 on November 6.** Their P prefix comes from the proposal they were approved in and keeps them apart from the earlier D-01 to D-26, which live in the dated record. The book's own register holds fifteen rows and warns that more than thirty means decisions are being argued again, so a new decision takes the next ID, P-23, and changes to an old one edit its row.
 
 | ID | Decision | Status | Why | Revisit when |
 | --- | --- | --- | --- | --- |
@@ -131,70 +131,80 @@ The MSAIE's Cloud Applications and Architectures specialization supplies AWS, an
 | P-03 | Test money only on Sui's test network: no real-money account, no token and no stablecoin of Ambition's own | Accepted | Payments are final, beginners copy the build, and issuing a dollar requires a license under the GENIUS Act | After an independent audit |
 | P-04 | Research is rail-neutral: one scorecard for every chain and stablecoin, Sui included. Briefs cover risk, safety and how-to, cite a source for every answer, may say "insufficient evidence", and never make price calls, trade signals or personal recommendations | Accepted | A referee that favors its own rail loses the trust that makes its briefs worth buying | Before any paid offer to people |
 | P-05 | The agent's spending authority is an object it holds, with a budget, an expiry and an allowed-recipient list the owner can suspend or revoke. Ambition builds its own in module 5 and compares it with OpenZeppelin's spend vault in module 8 | Accepted | A limit the chain enforces holds even if every check before it fails | Module 8 |
-| P-06 | Control lives outside the model: a write-back gate checks every payment and fails closed, and the agent's key is created in AWS KMS and never leaves it | Accepted | A fooled model or a crashed check still cannot overspend, and a key that never leaves KMS cannot leak | Only ever tightened |
+| P-06 | Control lives outside the model: a write-back gate checks every payment and fails closed, and the agent's key is created in Cloud KMS and never leaves it | Accepted | A fooled model or a crashed check still cannot overspend, and a key that never leaves KMS cannot leak | Only ever tightened |
 | P-07 | Every payment settles in the same transaction as its receipt | Accepted | An agent never pays without proof that it received what it bought | Module 6 |
 | P-08 | Readers onboard with zkLogin and sponsored transactions, and agents pay with gasless stablecoin transfers where Sui offers them | Accepted | Beginners never buy gas before a first payment, and agents manage one balance instead of two | Module 7 |
 | P-09 | Move for on-chain code, TypeScript with Mysten's official SDK for the chain client and KMS signing, and Python for the agent, research and analysis | Accepted | Sui's official tools are TypeScript, and Python support rests on one volunteer maintainer | If an official Python SDK appears |
 | P-10 | The six safety habits carry over unchanged: release manifest, fail-closed write-back gate, kill switch with named steps and dated drills, test-set gate, near-miss log and per-run cost ceiling | Accepted | None of them depended on the chain | Each rung gate |
 | P-11 | The chain records what must never be edited, such as caps, payments and escrow deadlines, and any off-chain index can be rebuilt from it | Accepted | Anyone can verify the money, and losing the index costs nothing | Module 10 |
-| P-12 | AWS stays the cloud: KMS for keys, Lambda for the agent, DynamoDB for the index, and a budget that blocks the agent's roles | Accepted | It is the cloud the degree teaches, and Mysten's KMS signer works with it | Rung-3 cost review |
+| P-12 | Superseded by P-20. The cloud is Google Cloud, not AWS | Superseded | The reference build in the book runs on Google Cloud, and each service the plan needs has a documented counterpart | Rung-3 cost review, on Google Cloud prices |
 | P-13 | The research charter excludes measuring fake or wash agent activity | Accepted | That work needs data access and legal review Ambition won't have, and it would turn a teaching desk into a policing one | Before rung 5 |
 | P-14 | The Move Book and Sui's documentation join the two current books as reading sources, and no book or course material goes into Git | Accepted | Move replaces Solidity, and the books' and course's copyright and the Student Code of Conduct bar sharing them | Never, for the Git rule |
 | P-15 | The plan stays dateless: modules close on checks, rungs close on gates, and dates return when the capstone course begins | Accepted | A gate holds the bar where a date invites lowering it | When the capstone course begins |
 | P-16 | Keep the Ambition name and its public repository, with the GitLab mirror and the MIT License unchanged | Accepted | The mission still fits, and keeping the name keeps the repository, its history and readers' links intact | Only if the mission changes |
 | P-17 | The paid service uses Sui's own payment flow, not a third-party x402 package | Accepted | x402 has no official Sui implementation, while Sui's own flow settles a payment and its receipt in one transaction with no outside code | If an official x402 implementation for Sui appears |
 | P-18 | Apply for a Sui grant or request for proposals, and for the next academic research award Sui announces, whether the 2026 or the 2027 round | Accepted | A grant can fund the build and an independent audit, and the 2025 award program has ended with no next round announced | When Sui announces the next award round |
-| P-19 | The research desk's multi-agent stage is a committee of eight, after the research engine in *Building the Agentic Enterprise*: a Research Director; four specialists, the Market Analyst, the Sector Specialist, an economist of agent markets (the book's Macro Economist, retooled) and a new on-chain payments analyst; a Findings Generator in place of the Thesis Generator; the Compliance Agent; and a Report Writer. The economist studies prices, market power, concentration, fragility and adoption, takes labor and productivity from primary research and official statistics, and checks every market-size claim before using it. The payments analyst reads Sui first and other rails on the same scorecard (P-04). The per-run cost ceiling rises to fit the fourth specialist, at an amount set from each agent's measured cost | Accepted | Agentic commerce raises economy-wide questions as well as on-chain ones, and one specialist per data domain can be costed, tested and failed on its own | When the agent specifications set each agent's module and cost |
+| P-19 | Superseded by P-21. The first committee had eight units and four specialists | Superseded | P-21 keeps the book's seven units, with the on-chain payments analysis inside the Sector Specialist | Not applicable |
+| P-20 | Google Cloud is the platform: Cloud Run, Firestore, Cloud Workflows, Cloud Scheduler and Cloud KMS, with Apigee as the public gateway and a VPC Service Controls perimeter around the research project. Gemini runs the agents on Vertex AI, and Claude on Vertex AI judges their output. This supersedes P-12 | Accepted | The book's reference build proves this design on a real research workload, and a judge from a different vendor than its generators is a stronger check than a different model from the same vendor | If the organization cannot be set up, the perimeter becomes a recorded deviation |
+| P-21 | The research committee has seven units, matching Figure 13.1 of the book: the Research Director; the Market Analyst; the Macro Economist (the book's economist, retooled); the Sector Specialist, which includes the on-chain payments analysis for Sui; the Findings Generator (the book's Thesis Generator); the Compliance Agent as a gate; and the Report Writer. This replaces P-19 | Accepted | Each data domain keeps one owner, and the committee keeps the book's shape: three specialists under the Director | When the agent specifications set each unit's module and cost |
+| P-22 | Tests and the kill switch follow the book. Every commit runs a 50-query smoke set; a golden set of 200 or more queries runs nightly on Google Cloud's Batch tier; the gate is 0.90 on the golden set and 4.5 on the five-point judge scale; a canary takes 5% of traffic after 24 hours of shadow running. The kill switch runs through a Cloud Monitoring alert, Pub/Sub, a Cloud Function and a Firestore flag that the gateway and every service check. This amends P-10 | Accepted | The book's nightly run is affordable on Batch, and the kill switch must stop the gateway as well as the agents | If Batch is unavailable for the Claude judge, the nightly judge runs on replayed outputs and the change is recorded |
 
 ## Plain-language terms
 
 | Term | Plain meaning |
 | --- | --- |
 | Agentic commerce | AI agents buying and selling on their own, paying per request in digital dollars |
-| API Gateway | An AWS service that gives code a web address and decides which function answers each request |
+| Apigee | Google Cloud's API gateway, which checks who may call an API, sets rate limits and tiers clients |
 | Atomic transaction | A set of steps that all succeed or all fail together, so nothing is left half done |
-| AWS Budgets | AWS's spending alarms, which can also block chosen roles once the bill passes a set amount |
-| AWS CDK | A toolkit for describing AWS resources in code, so the whole setup can be reviewed, tested and rebuilt |
-| Bedrock | AWS's service for calling AI models such as Claude, authorized by AWS roles instead of a separate API key |
+| Batch tier | Google Cloud's lowest-cost model tier, with up to a 24-hour turnaround, used here for the nightly golden set |
+| BigQuery | Google Cloud's analytics warehouse, here the audit and billing record |
 | Capability | An object that grants a power, such as spending up to a budget; whoever holds it has that power |
 | Checkpoint | A numbered batch of Sui transactions that the network has finalized, like a page in its record book |
-| CloudWatch | AWS's logs and metrics service, where every Lambda writes what it did |
+| Cloud Billing budgets | Google Cloud's spending alerts, which can also trigger a function that blocks chosen services once spend passes a set amount |
+| Cloud KMS | Google Cloud Key Management Service, which keeps keys inside secure hardware and signs with them there |
+| Cloud Logging | Google Cloud's log service, where every Cloud Run service writes what it did |
+| Cloud Run | Google Cloud's way to run a container without managing a server; it scales to zero and bills per request |
+| Cloud Scheduler | A Google Cloud service that starts a job at a set time or on a repeating schedule |
+| Cloud Trace | Google Cloud's tracing service, which follows one request through every service it touches |
+| Cloud Workflows | Google Cloud's service for running a multi-step process in order, with retries and checkpoints |
 | Cost ceiling | The most one agent run may spend on models and services; near it the agent switches to a cheaper model, and at it the run stops |
 | DeepBook | Sui's shared order book, where many apps draw on the same pool of buy and sell orders |
 | Done-When | A check anyone can run that says a piece of work is finished, written before the work starts |
-| DynamoDB | AWS's database that stores records by a key and needs no server to manage |
 | Escrow | Holding a payment until the service delivers, then refunding it if a deadline passes |
-| EventBridge Scheduler | An AWS service that starts a function at a set time or on a repeating schedule |
+| Eventarc | Routes events, such as a database change, to a Google Cloud service |
 | Fail closed | When a check breaks, times out or lacks the data it needs, its answer is no |
+| Firestore | Google Cloud's database that stores records by a key and needs no server to manage |
 | Gas station | A service that pays other people's network fees, here within a capped budget |
 | Gasless transfer | Sending a stablecoin without paying the network fee in the chain's own token |
+| Gemini | Google's family of AI models; Pro handles the hardest reasoning and Flash the fast, routine work |
 | GENIUS Act | The 2025 US law that sets who may issue a payment stablecoin and how it must be backed |
-| IAM role | A set of AWS permissions that code takes on for a short time, instead of holding a password or key |
-| Kill switch | A fast way to stop an agent: here, revoking its spending cap, pausing its schedule and denying its role |
-| KMS | AWS Key Management Service, which keeps keys inside secure hardware and signs with them there |
-| Lambda | AWS's way to run a function without managing a server; it runs on demand and bills per request |
+| Google Cloud Architecture Framework | Google Cloud's checklist of design principles for judging a cloud design |
+| Kill switch | A fast way to stop an agent: here, revoking its spending cap, pausing its schedule and denying its service account |
 | Layer 1 | A blockchain that settles its own transactions with its own validators, such as Sui |
 | Move | The programming language for Sui code, built so a digital asset cannot be copied or lost by mistake |
 | Near-miss log | A record of every payment the gate refused or sent for approval, with its reason, read for warnings before a real loss |
 | Object | Sui's basic unit of data: every coin, cap and receipt is an object with an owner |
-| OIDC | A standard that lets GitHub prove who it is to AWS and receive short-lived credentials, so no AWS key is stored |
 | Payment Intents | A Sui feature that settles one request across several apps in a single transaction |
 | Programmable transaction block | One Sui transaction that chains up to 1,024 steps, all of which succeed or fail together |
+| Pub/Sub | Google Cloud's message service, which passes events between services without them calling each other directly |
 | Rail | The network and rules a payment travels on, such as a blockchain or a card network |
 | Release manifest | One file per deploy listing exactly which model, prompts, tools, Move packages and caps are running |
 | Seal | Sui's encryption with access control, which decides who can read stored data |
+| Service account | An identity that code takes on, with permissions set in Google Cloud IAM, instead of holding a password or key |
 | Sponsored transaction | A transaction whose network fee someone else pays, so a new user needs no SUI |
 | Stablecoin | A token designed to hold a steady value, such as one US dollar |
 | Synthetic dollar | A token that tracks a dollar through offsetting trades rather than cash reserves |
+| Terraform | A tool that describes cloud resources in code, so the whole setup can be reviewed, tested and rebuilt |
 | Test network | A practice blockchain where all money is free and worthless |
 | Test set | A fixed list of tasks with known right answers that every change must pass |
 | Tokenized money-market fund | Shares in a fund of short-term government debt, recorded as tokens on a blockchain |
 | Traffic class | A tag on every model call saying what it was for, such as an agent run, a test or a reader request, so costs can be split by purpose |
 | Validator | A computer that checks and records a blockchain's transactions |
+| Vertex AI | Google Cloud's platform for calling AI models such as Gemini and Claude, authorized by Google Cloud identity instead of a separate API key |
+| VPC Service Controls | A Google Cloud perimeter that stops data from leaving a set of projects except through rules the owner writes |
 | Walrus | Sui's storage network for large files, such as a library of cited sources |
-| Well-Architected Framework | AWS's six-pillar checklist for judging a cloud design |
+| Workload Identity Federation | A Google Cloud feature that lets GitHub prove who it is and receive short-lived credentials, so no Google Cloud key is stored |
 | Write-back gate | The checkpoint between what an agent proposes and anything that changes the world, such as a payment |
-| X-Ray | AWS's tracing service, which follows one request through every function it touches |
 | zkLogin | A Sui sign-in that creates a wallet from a familiar login without revealing that login on the chain |
 
 ## Sources
@@ -207,16 +217,18 @@ The MSAIE's Cloud Applications and Architectures specialization supplies AWS, an
 - Jones Day, [US Treasury proposes GENIUS Act rules for stablecoin issuance, offer and sale](https://www.jonesday.com/en/insights/2026/08/us-treasury-proposes-genius-act-rules-for-stablecoin-issuance-offer-and-sale) (August 2026)
 - Blockworks, [$160M in stolen funds puts Sui's decentralization to the test](https://blockworks.co/news/suis-decentralization-dex-put-to-the-test), on the Cetus exploit and the validator freeze
 - OpenZeppelin, [Contracts for Sui: delegated spending](https://docs.openzeppelin.com/contracts-sui/1.x/guides/delegated-spending), on the spend vault
-- Mysten Labs, [AWS KMS signer](https://sdk.mystenlabs.com/sui/cryptography/signers/aws-kms), on signing Sui transactions with a key that never leaves KMS
+- Mysten Labs, [Google Cloud KMS signer](https://sdk.mystenlabs.com/sui/cryptography/signers/gcp-kms), on signing Sui transactions with a key that never leaves Cloud KMS
 - PyPI, [pysui](https://pypi.org/project/pysui/1.3.0/), the community Python SDK for Sui
 - pkgstats, [@tentaclepay/sui-x402](https://www.pkgstats.com/pkg:@tentaclepay/sui-x402), a third-party x402 package for Sui
 - Circle, [Testnet faucet](https://faucet.circle.com), which lists Sui's test network for test USDC
 - Damir Shamanaev and contributors, [The Move Book](https://move-book.com), the guide to Move on Sui
 - Sui Forums, [Apply for an academic research award](https://forums.sui.io/t/apply-for-an-academic-research-award/49276), on the ended 2025 program
 - OWASP GenAI Security Project, [OWASP Top 10 for Agentic Applications for 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications/) (December 9, 2025)
-- AWS, [Well-Architected Framework, Sustainability Pillar](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html), which lists the framework's six pillars
-- AWS, [Configuring budget actions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-controls.html), on applying an IAM policy when a budget passes its threshold
-- GitHub, [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/enterprise-server@3.13/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services), on deploying without long-lived AWS secrets
+- Google Cloud, [Architecture Framework](https://cloud.google.com/architecture/framework), the design principles used for the module 12 review
+- Google Cloud, [Set budgets and budget alerts](https://cloud.google.com/billing/docs/how-to/budgets), on alerts that can publish to Pub/Sub when spend passes a threshold
+- Google Cloud, [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation), on deploying from GitHub without long-lived Google Cloud keys
+- Google Cloud, [Batch predictions with Anthropic Claude models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude/batch), on the batch tier for Claude on Vertex AI
+- Anthropic, [Claude on Vertex AI](https://platform.claude.com/docs/en/api/claude-on-vertex-ai), on the judge's model access
 - Jaroslav Pantsjoha, [*Building the Agentic Enterprise*](https://www.oreilly.com/library/view/building-the-agentic/9781807604455/) (Packt, September 2026), for the register, gates and six habits, cited by page
 - Hanane Dupouy and Fayssal El Mofatiche, [*Building AI Agents for Finance*](https://reference-global.com/book/9781837022281) (Packt, 2026), with Ambition's adopted rules in the [reading notes](research/building-ai-agents-for-finance-notes.md)
 - Ambition, [Build in Public: Mission and Ladder](build-in-public-plan.md), the modules, ladder and gates in plan form
