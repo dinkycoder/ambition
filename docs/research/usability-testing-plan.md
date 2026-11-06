@@ -209,7 +209,6 @@ Figma's guide is undated and lists no prices. I couldn't confirm that your Educa
 - [Sui documentation: Get coins](https://docs.sui.io/guides/developer/getting-started/get-coins)
 - [Sui documentation: zkLogin](https://docs.sui.io/concepts/cryptography/zklogin)
 - [Sui documentation: Sponsored transactions](https://docs.sui.io/concepts/transactions/sponsored-transactions)
-- [npm: @coinbase/cdp-sdk](https://www.npmjs.com/package/@coinbase/cdp-sdk)
 - [MetaMask Design: Confirmation screen issue](https://github.com/MetaMask/Design/issues/80)
 - [ethereum.org: Heuristics for web3](https://ethereum.org/developers/docs/design-and-ux/heuristics-for-web3/)
 - [arXiv: Systematic review of cryptocurrency wallet usability](https://arxiv.org/pdf/2204.10857)
