@@ -1,6 +1,6 @@
 # Ambition Research Engine: Agent Specifications
 
-Nov 6, 2026 · @dinky
+Nov 7, 2026 · @dinky
 
 ## Summary
 

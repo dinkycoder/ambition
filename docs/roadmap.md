@@ -10,7 +10,7 @@ The platform has three parts that feed each other. The toolkit gives an agent a 
 
 Sui carries the build because its base layer already does what agent payments need. One transaction can settle several steps at once, a spending limit can be an object the agent holds, and beginners can sign in and pay without buying gas. The research stays neutral anyway, because a referee that favors its own rail would lose the trust that makes its briefs worth buying.
 
-**P-01 to P-18 were accepted on November 4, 2026. P-19 to P-22 were accepted on November 7, 2026.** This roadmap replaces the earlier Base and Solidity roadmap, which is kept unchanged as a [dated record](archive/agentic-enterprise-roadmap-2026-11-04.md) of its decisions, D-01 to D-26. The plan stays dateless, and dates return when the capstone course begins (P-15).
+**P-01 to P-22 were accepted on November 7, 2026.** This roadmap replaces the earlier Base and Solidity roadmap, which is kept unchanged as a [dated record](archive/agentic-enterprise-roadmap-2026-11-04.md) of its decisions, D-01 to D-26. The plan stays dateless, and dates return when the capstone course begins (P-15).
 
 ## Why this platform
 
@@ -122,7 +122,7 @@ The MSAIE's Cloud Applications and Architectures specialization supplies the clo
 
 ## Decision Register
 
-**Twenty-two decisions make up the register: eighteen accepted on November 4, 2026, and P-19 to P-22 on November 7.** Their P prefix comes from the proposal they were approved in and keeps them apart from the earlier D-01 to D-26, which live in the dated record. The book's own register holds fifteen rows and warns that more than thirty means decisions are being argued again, so a new decision takes the next ID, P-23, and changes to an old one edit its row.
+**Twenty-two decisions make up the register, all accepted on November 7, 2026.** Their P prefix comes from the proposal they were approved in and keeps them apart from the earlier D-01 to D-26, which live in the dated record. The book's own register holds fifteen rows and warns that more than thirty means decisions are being argued again, so a new decision takes the next ID, P-23, and changes to an old one edit its row.
 
 | ID | Decision | Status | Why | Revisit when |
 | --- | --- | --- | --- | --- |
