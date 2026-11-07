@@ -95,6 +95,8 @@ Each brief scores one rail or stablecoin against these questions, cites a source
 | Near-miss log | Every payment the gate refused or sent for approval is logged with its reason, because a near miss is the cheapest warning a system gives | Module 5 | p. 467 |
 | Cost tags and a per-run ceiling | Every model call carries a traffic-class tag, such as agent run, test set or reader service. At 90% of a run's ceiling the agent switches to a cheaper model, and at 100% the run stops | Module 6 | pp. 411, 518 |
 
+**Two candidate habits come from the agentic-economy papers. Neither is accepted, and the register below does not include them.** The first is an agent-trap test: a web page or document that tells an agent to spend or approve must fail closed, and the case joins the starter set (Tomasev et al., 2025, arXiv:2509.10147, on agent traps). The second is credit logging: every finding records the agent, snapshot and hash that produced it (Tomasev et al., 2025, on tracing value back through agent chains). Both add to the test set and the near-miss log, so they would take effect only after you accept them.
+
 ## The architecture on Google Cloud and Sui
 
 **Every payment passes a gate in code, a signature inside Cloud KMS and the spending cap's own check on Sui before it settles.** Google Cloud runs the agent, its keys and its records, while Sui holds the money and the rules that must never be edited (P-11, P-20).
@@ -210,6 +212,7 @@ The MSAIE's Cloud Applications and Architectures specialization supplies the clo
 ## Sources
 
 - Sui, [DeFi on Sui](https://www.sui.io/defi), on DeepBook, programmable transaction blocks, zkLogin, sponsored transactions, Walrus, Seal and Nautilus
+- Rothschild et al., [The Agentic Economy (arXiv:2505.15799, 2025)](https://arxiv.org/abs/2505.15799), and Tomasev et al., [Virtual Agent Economies (arXiv:2509.10147, 2025)](https://arxiv.org/abs/2509.10147), for the two candidate habits above; both are conceptual framing, not measured results
 - Sui Foundation, [Blockchain for AI agents and agentic commerce](https://sui.io/blog/blockchain-for-ai-agents-agentic-commerce-sui) (September 2, 2026), the four questions, Payment Intents and gasless stablecoin transfers
 - Sui, [USDsui, a native stablecoin issued by Bridge, a Stripe company](https://www.sui.io/blog/sui-unveils-usdsui-native-stablecoin) (November 12, 2025)
 - Sui, [Sui, SUIG and Ethena to launch native suiUSDe](https://www.sui.io/blog/suig-ethena-suiusde-stablecoin) (October 1, 2025), on suiUSDe and USDi
