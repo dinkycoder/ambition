@@ -2,6 +2,8 @@
 
 The research behind the [agent specifications](research-engine-agent-specs.md), with every source and every page the researchers could not open.
 
+> **A dated research record, kept as written on November 6, 2026.** Since then the platform has been renamed Agency Lab and moved to AWS and Base ([P-23](../decisions/P-23-aws-platform.md), [P-24](../decisions/P-24-base-chain.md), [P-25](../decisions/P-25-agency-lab-name.md)), so this report's name for the platform, its Sui-first chain research and its eight-agent committee are historical. Its Bedrock cost estimates are the reference the current [specifications](research-engine-agent-specs.md) use, and where the two differ, the specifications and the [Decision Register](../roadmap.md#decision-register) govern.
+
 ## Ambition's research engine grows one agent at a time
 
 *Research synthesis, November 6, 2026. This is research for a specification, not legal or investment advice.*

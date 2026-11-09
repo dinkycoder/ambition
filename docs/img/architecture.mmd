@@ -1,66 +1,44 @@
-flowchart LR
+%%{init: {"theme": "base", "flowchart": {"curve": "basis", "nodeSpacing": 30, "rankSpacing": 45, "padding": 10, "wrappingWidth": 340}, "themeCSS": ".nodeLabel, .edgeLabel, .cluster-label, .label, text, span, p { font-family: Inter, sans-serif !important; }", "themeVariables": {"fontFamily": "Inter, sans-serif", "fontSize": "17px", "clusterBkg": "#fafafa", "clusterBorder": "#9a9a9a", "lineColor": "#555", "edgeLabelBackground": "#ffffff"}}}%%
+flowchart TB
   classDef ext fill:#f4f4f4,stroke:#777,color:#111
   classDef core fill:#e8f1fb,stroke:#1a4f8b,color:#111
   classDef model fill:#fdf1e3,stroke:#b35c00,color:#111
   classDef store fill:#eef7ee,stroke:#2e7d32,color:#111
   classDef ctrl fill:#fbe9e9,stroke:#b71c1c,color:#111
 
-  subgraph OUT["Outside Google Cloud"]
-    direction TB
-    READER["Readers and the public site"]:::ext
-    SUI["Sui testnet<br/>gRPC and GraphQL reads;<br/>Move packages and test USDC"]:::ext
-    OPS["You: approvals and reviews"]:::ext
+  READER["Readers and builders<br/>embedded wallets, paid briefs"]:::ext
+  OPS["You<br/>approvals and reviews"]:::ext
+
+  subgraph AWS["AWS account in us-east-1, deployed only by GitHub Actions through OIDC and CDK in Python"]
+    ENTRY["API Gateway and CloudFront<br/>paid x402 service, public page"]:::core
+    SFN["EventBridge and Step Functions<br/>schedules, fan-out, approvals"]:::core
+    RT["AgentCore Runtime<br/>seven units in Strands Agents"]:::core
+    MODELS["Bedrock<br/>Nova tiers generate, Claude judges"]:::model
+    OBS["CloudWatch, X-Ray, Evaluations<br/>an alarm trips the kill switch"]:::store
+    GW["AgentCore Gateway and Policy<br/>tools, x402 Bazaar, deny rules"]:::core
+    GATE["Write-back gate<br/>fails closed"]:::ctrl
+    KMS["AWS KMS<br/>secp256k1 key signs inside"]:::ctrl
+    PAY["AgentCore payments<br/>managed path, session budget"]:::core
+    REC[("DynamoDB, S3 and Athena<br/>statements, near misses,<br/>audit record, kill flag")]:::store
   end
 
-  subgraph EGR["Egress project"]
-    direction TB
-    EJOB["Cloud Run job<br/>reads Sui, writes nothing back"]:::core
+  subgraph CHAIN["Base Sepolia and Coinbase services"]
+    CDP["Coinbase CDP<br/>facilitator, paymaster, wallets"]:::ext
+    BASE["Base Sepolia<br/>allowance, escrow, test USDC"]:::ext
   end
 
-  BRIDGE{{"One-way Pub/Sub bridge"}}:::ctrl
-
-  subgraph PERIM["Research project inside a VPC Service Controls perimeter"]
-    direction TB
-    APIGEE["Apigee gateway<br/>public API, rate limits"]:::core
-    HOST["Firebase Hosting<br/>client portal"]:::core
-    SCHED["Cloud Scheduler<br/>nightly, weekly, triggers"]:::core
-    WF["Cloud Workflows<br/>fan-out, retries, checkpoints"]:::core
-    DIR["Research Director<br/>Cloud Run · Gemini Flash"]:::core
-    UNITS["Seven runtime units<br/>Cloud Run · Gemini Flash and Pro"]:::core
-    JUDGE["Compliance judge<br/>Claude on Vertex AI"]:::model
-    GATE["Write-back gate<br/>fails closed; signs with Cloud KMS"]:::ctrl
-    FS[("Firestore<br/>plans, findings, flags")]:::store
-    AUDIT[("BigQuery<br/>audit and billing export")]:::store
-    OBS["Cloud Logging, Trace<br/>and Monitoring"]:::store
-    KILL["Kill switch<br/>Cloud Function sets flag"]:::ctrl
-  end
-
-  subgraph BUILD["Build and deploy"]
-    direction TB
-    GHA["GitHub Actions"]:::ext
-    WIF["Workload Identity Federation"]:::ext
-    TF["Terraform"]:::ext
-  end
-
-  READER --> APIGEE
-  APIGEE --> HOST
-  APIGEE --> DIR
-  OPS --> APIGEE
-  SCHED --> WF --> DIR --> UNITS
-  UNITS --> JUDGE
-  UNITS --> GATE
-  JUDGE --> GATE
-  GATE --> SUI
-  GATE --> FS
-  GATE --> AUDIT
-  DIR --> FS
-  SUI -.-> EJOB
-  EJOB --> BRIDGE --> PERIM
-  BRIDGE --> FS
-  UNITS --> OBS
-  OBS -- "alert" --> KILL
-  KILL -- "maintenance flag" --> FS
-  FS -. "flag checked before acting" .-> APIGEE
-  FS -. "flag checked before acting" .-> UNITS
-  GHA --> WIF --> TF
-  TF -.-> PERIM
+  READER --> ENTRY
+  OPS --> SFN
+  SFN --> RT
+  RT --> MODELS
+  RT --> OBS
+  RT --> GW
+  GW --> GATE --> KMS --> BASE
+  GW --> PAY --> CDP
+  ENTRY --> CDP
+  CDP --> BASE
+  GATE --> REC
+  OBS -- "sets the kill flag" --> REC
+  BASE -. "indexer reads blocks" .-> REC
+  REC -. "flag checked first" .-> GW
+  REC -. "flag checked first" .-> ENTRY

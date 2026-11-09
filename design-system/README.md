@@ -1,8 +1,8 @@
-# Ambition Design System
+# Agency Lab Design System
 
-The style guide, tokens and money components for Ambition. It mirrors the editable Design System artifact; the PDF is in [docs/pdf](../docs/pdf/Ambition%20Design%20System.pdf). Open any `components/<Name>/preview.html` in a browser to see a component, and add `data-theme="dark"` or `data-theme="high-contrast"` to its `<html>` tag to switch themes.
+The style guide, tokens and money components for Agency Lab. It mirrors the editable Design System artifact; the PDF is in [docs/pdf](../docs/pdf/Agency%20Lab%20Design%20System.pdf). Open any `components/<Name>/preview.html` in a browser to see a component, and add `data-theme="dark"` or `data-theme="high-contrast"` to its `<html>` tag to switch themes.
 
-Ambition helps AI builders give their agents money safely, one small win at a time. It is an open-source agentic commerce research and education platform on Sui, built in public one module at a time, and an MSAIE capstone. The interface is calm, exact and honest: it shows what will happen to money before anything happens, and it never pressures anyone. Its structure follows Carbon, IBM's open-source design system, with Ambition's own look.
+Agency Lab helps AI builders give their agents money safely, one small win at a time. It is an open-source agentic commerce research and education platform on AWS and Base, built in public one module at a time, and an MSAIE capstone. The interface is calm, exact and honest: it shows what will happen to money before anything happens, and it never pressures anyone. Its structure follows Carbon, IBM's open-source design system, with Agency Lab's own look.
 
 ## Principles
 
@@ -18,7 +18,7 @@ Write like a careful friend who knows blockchains: short sentences, plain words,
 
 - **Name the action and the amount on every money button.** Write "Send 5 test USDC" or "Refund 2 test USDC", never "OK", "Submit" or "Done".
 - **The way out is always "Cancel".** Never "Decline", "No thanks" or a guilt line.
-- **Say test money until real money is allowed.** Every money screen carries `TestNetworkBadge` and the words "Test money on Sui testnet".
+- **Say test money until real money is allowed.** Every money screen carries `TestNetworkBadge` and the words "Test money on Base Sepolia".
 - **Errors say what happened and what to do next**, in words as well as color: "The blockchain didn't respond. Your money hasn't moved. Try again."
 - **Metaphors say where they break**: "Escrow works like a referee holding the money, but unlike a card payment there is no chargeback."
 
@@ -27,7 +27,7 @@ Use these words and only these:
 | Say | Meaning | Never say |
 | --- | --- | --- |
 | wallet | An account on the blockchain, controlled by a secret key | account |
-| test money | Free tokens on Sui's test network with no real value | free money |
+| test money | Free tokens on Base Sepolia with no real value | free money |
 | USDC | A digital dollar, backed one-for-one by real dollars | coin |
 | agent | An AI program that acts on its own, such as paying for data | bot |
 | spending limit | The most an agent may spend in a day, enforced by a contract | budget, cap |
@@ -65,7 +65,7 @@ There are two system font stacks, `font-sans` and `font-mono`, so pages load ins
 - Use `display` once per page at most, `heading-01` for page titles, `heading-02` for sections and `heading-03` for dialog and card titles.
 - Use `body` as the default app text, `body-lg` for explanations in reader challenges, `label` for field labels, table headers and tags, and `helper` under fields.
 - Set money in `amount-lg` (the one headline figure on the spending page) or `amount`, always with tabular figures (`font-variant-numeric: tabular-nums`) and always with a unit: "5.000000 USDC".
-- Set wallet addresses and transaction hashes in `code`, in groups of four (`0x8f3a 2c91 … 7d04`), with the first and last groups in `text-primary` and the middle in `text-secondary`.
+- Set wallet addresses and transaction hashes in `code`, in groups of four (`0x71C7 656E … 976F`), with the first and last groups in `text-primary` and the middle in `text-secondary`.
 - Line heights sit on the 4px unit.
 
 ## Space, grid and shape
@@ -99,17 +99,17 @@ Motion explains a change in money; it never decorates.
   - triangle-alert means warning
   - x-circle means failed
 - **Small sizes.** Icons at 16px are drawn for that size, not shrunk.
-- **No logo yet.** Ambition has no mark yet, so set the name in `heading-03` in `text-primary`. Never borrow IBM or Google marks, pictograms or palettes.
+- **No logo yet.** Agency Lab has no mark yet, so set the name in `heading-03` in `text-primary`. Never borrow IBM or Google marks, pictograms or palettes.
 
 ## Components
 
 General components come from Carbon (`@carbon/react` or `@carbon/web-components`, with `CARBON_TELEMETRY_DISABLED=1`), styled through these tokens. These include buttons, text inputs, dropdowns, toggles, the data table, notifications, the modal, inline loading, tags, toggletips, tabs, the content switcher, pagination, search and the date picker. Don't use Carbon's number input or progress bar for money: their arrow keys can nudge an amount, and the bar cannot reset.
 
-Ambition adds the money components Carbon lacks:
+Agency Lab adds the money components Carbon lacks:
 
 - `SpendConfirmation`: the dialog before any spend, approval or signature.
 - `AmountInput`: a text field for amounts with unit and six decimals.
-- `AddressDisplay`: a wallet address in groups of four, with a format check and a copy button.
+- `AddressDisplay`: a wallet address in groups of four, with a checksum check and a copy button.
 - `TransactionStatus`: submitted, confirming, final, failed and refunded, each with its own shape, icon and word.
 - `SpendMeter`: spend against a daily limit that resets.
 - `LimitEditor`: the limit written as a sentence.

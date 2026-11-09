@@ -1,8 +1,8 @@
-# Ambition Design Guidelines
+# Agency Lab Design Guidelines
 
-Nov 4, 2026 · @dinky
+Nov 8, 2026 · @dinky
 
-**These are the rules Ambition's UX agent follows and that any builder may reuse.** The style guide comes before any screen, the base is Carbon with Ambition's own look, a persuasion policy protects consent, and Ambition adds the money components that agent-payments apps need. The guidelines ship in numbered releases with the code, and every do-and-don't pair runs as an automated test.
+**These are the rules Agency Lab's UX agent follows and that any builder may reuse.** The style guide comes before any screen, the base is Carbon with Agency Lab's own look, a persuasion policy protects consent, and Agency Lab adds the money components that agent-payments apps need. The guidelines ship in numbered releases with the code, and every do-and-don't pair runs as an automated test.
 
 ## Principles and persuasion policy
 
@@ -28,53 +28,53 @@ Some effects justify safeguards rather than tactics. The Cashless Effect makes i
 
 ## Foundations
 
-**The style guide is written in module 8, before the first screen, so every later part inherits it.** Ambition keeps the structure of [Carbon](https://www.carbondesignsystem.com/), IBM's open-source design system, and replaces its look. Screens then behave like a mature system without looking like an IBM product.
+**The style guide is written in module 8, before the first screen, so every later part inherits it.** Agency Lab keeps the structure of [Carbon](https://www.carbondesignsystem.com/), IBM's open-source design system, and replaces its look. Screens then behave like a mature system without looking like an IBM product.
 
 | Foundation | Rule | From Carbon |
 | --- | --- | --- |
 | Tokens | Stored in the [W3C Design Tokens format](https://www.designtokens.org/) (first stable version, October 2025). Names are roles, such as background, layer, text-primary and support-error, never raw values. | Keep the role names and state rules, translated from Carbon's Sass and JavaScript tokens |
 | Color | OKLCH values in even lightness steps, with light, dark and high-contrast modes switchable while the app runs. Contrast is tested after conversion to standard screen color (sRGB): 4.5:1 for text, 3:1 for large text, icons and focus rings. Red, amber and green mean status only and are never brand colors. Charts use a four-color set or a single hue, never status colors. | Replace every value and skip Carbon's chart order, which puts red and green in series 5 to 7 |
-| Type | System fonts first, for speed, on Carbon's product type scale at weights 400 and 600. A variable font with optical sizing appears only on brand pieces. Every amount uses tabular figures, wallet addresses show in groups of four (0x8f3a 2c91 … 7d04), and text is sentence case. | Keep the scale and drop IBM Plex |
+| Type | System fonts first, for speed, on Carbon's product type scale at weights 400 and 600. A variable font with optical sizing appears only on brand pieces. Every amount uses tabular figures, wallet addresses show in groups of four (0x71C7 656E … 976F), and text is sentence case. | Keep the scale and drop IBM Plex |
 | Spacing and grid | One 4-point unit using Carbon's steps of 4, 8, 12, 16, 24, 32, 40, 48, 64, 80 and 96 px, with 2 px for hairlines only. Carbon's 2x grid has 16 columns on an 8 px unit with breakpoints at 320, 672, 1056, 1312 and 1584 px, but a phone layout and a desktop layout are enough for modules 9 to 12. Line heights snap to 4 px. Grids are set before any screen is drawn, and breaking one needs a stated reason. | Adopt |
 | Motion | Carbon's productive durations (70, 110, 150 and 240 ms) with its standard, entrance and exit easing. Each money state (pending, confirmed, failed, refunded) has one consistent cue, and all motion stops when the user turns on reduced motion. | Adapt, adding the reduced-motion rule Carbon's motion page leaves out |
 | Icons | An open icon set such as Lucide or Phosphor, and each icon carries the name a screen reader speaks. The verified, spend, refund and test-network icons are reserved for one meaning each. Icons at 16 and 24 px are hand-tuned, not scaled down. | Replace, and use no IBM marks or pictograms |
 | Surfaces | Dark mode shows depth through background layers. High-contrast mode uses borders, because shadows barely show there. | Adapt |
 
-Any product can re-skin Ambition by supplying its own token values, because the role names never change.
+Any product can re-skin Agency Lab by supplying its own token values, because the role names never change.
 
 ## Brand assets and identity
 
-**Ambition's icon and logo follow the method of Google's Visual Assets Guidelines, not Google's look.** Each rule is shown as a do-and-don't pair, because paired examples are what an AI agent follows best, and every pair doubles as an automated test.
+**Agency Lab's icon and logo follow the method of Google's Visual Assets Guidelines, not Google's look.** Each rule is shown as a do-and-don't pair, because paired examples are what an AI agent follows best, and every pair doubles as an automated test.
 
 | Asset | Rule |
 | --- | --- |
 | Icon | Reductive, geometric, front-facing and flat, and drawn on the pixel grid so it stays crisp. It is redrawn by hand at 16 and 32 px for the browser tab and the GitHub avatar, not shrunk. |
-| Logo lockup | The icon plus the name Ambition. As space shrinks it steps down from the full lockup to the icon with a short name, then to the icon alone. Minimum size and clear space are set in multiples of the icon's height. |
+| Logo lockup | The icon plus the name Agency Lab. As space shrinks it steps down from the full lockup to the icon with a short name, then to the icon alone. Minimum size and clear space are set in multiples of the icon's height. |
 | Color versions | Full color, one color, and one color reversed on dark backgrounds, with a short list of approved backgrounds. Status colors never appear in the mark. |
 | Sizes | One table covers the browser tab, the GitHub avatar and social preview, LinkedIn post images and the documentation header. |
-| What not to copy | Google's four-color palette, its long 45-degree shadows, and anything that makes Ambition look like an IBM or Google product. |
+| What not to copy | Google's four-color palette, its long 45-degree shadows, and anything that makes Agency Lab look like an IBM or Google product. |
 
-**Identity extends past the logo.** AI agents never see a logo, so Ambition's name, its one-sentence description and the same structured details appear identically in agent registries, on payment pages, in the README and in chat answers. Official images carry content credentials under the C2PA standard, so anyone can confirm they are genuine. The open-source license covers the code but not the name or the logo, so Ambition's mark stays yours.
+**Identity extends past the logo.** AI agents never see a logo, so Agency Lab's name, its one-sentence description and the same structured details appear identically in agent registries, on payment pages, in the README and in chat answers. Official images carry content credentials under the C2PA standard, so anyone can confirm they are genuine. The open-source license covers the code but not the name or the logo, so Agency Lab's mark stays yours.
 
 ## Components
 
-**Carbon supplies the general components, and Ambition builds the money components Carbon lacks.** Those money components are Ambition's main public contribution.
+**Carbon supplies the general components, and Agency Lab builds the money components Carbon lacks.** Those money components are Agency Lab's main public contribution.
 
 | Need | Carbon component | Change for money |
 | --- | --- | --- |
-| Statements and refunds | Data table: sort, filter, search, expandable rows, batch actions, zebra rows | Amounts align on the decimal point, pages are labeled by month, and an expanded row shows the transaction digest and checkpoint |
+| Statements and refunds | Data table: sort, filter, search, expandable rows, batch actions, zebra rows | Amounts align on the decimal point, pages are labeled by month, and an expanded row shows the transaction hash and block |
 | Spend confirmation | Danger modal, with a structured list for the summary | Cancel sits on the left with first focus, overriding Carbon's default. The primary button names the action and amount, such as "Send 5 test USDC". Esc always means cancel. |
 | Payment progress | Inline loading | Separate "sent" and "confirmed" states, with the button disabled until the payment finishes, so a second click can't send twice |
 | Alerts and results | Inline and actionable notifications | Failures and spending alerts stay until dismissed, and no money message disappears on a timer |
 | Status labels | Tag, following Carbon's status-indicator pattern | Color, shape and a text label together |
 | Explainers | Toggletip | Plain-language definitions. Essential information never sits in a tooltip. |
 | Everyday controls | Button, text input, dropdown, toggle, search, date picker, tabs, content switcher, pagination, tile, code snippet | Toggles only for instant, reversible changes such as pausing alerts |
-| Avoided | Number input and progress bar | The number input's arrow keys can nudge an amount, and the progress bar cannot reset, so Ambition's own parts replace both |
+| Avoided | Number input and progress bar | The number input's arrow keys can nudge an amount, and the progress bar cannot reset, so Agency Lab's own parts replace both |
 
-**Ambition builds nine money components:**
+**Agency Lab builds nine money components:**
 
 - **Amount input:** a text field with its unit, six decimals and no stepper, which shows the value back for confirmation.
-- **Address display:** groups of four with the first and last groups highlighted, a format check (0x and 64 characters), a copy button, the full value on request, and output a screen reader can read.
+- **Address display:** groups of four with the first and last groups highlighted, a checksum check, a copy button, the full value on request, and output a screen reader can read.
 - **Transaction status:** submitted, confirming, final, failed and refunded, each with its own shape, icon and label.
 - **Spend meter:** spend against a daily limit that resets.
 - **Limit editor:** the sentence "Let \[agent\] spend \[5\] USDC per \[day\]".
@@ -141,7 +141,7 @@ Readers never see streak counters, random rewards or leaderboards.
 
 **The journey also covers the stages most plans forget.**
 
-| Stage | What Ambition provides |
+| Stage | What Agency Lab provides |
 | --- | --- |
 | Get help | Recovery steps for a stuck transaction, a wrong network and a failed signature, an FAQ, GitHub issues for bugs, and a fixed support block in every module |
 | Expand | A documented path from test money to real money that keeps the same limits, confirmations and alerts, published only after an independent contract audit |
@@ -154,7 +154,7 @@ Readers never see streak counters, random rewards or leaderboards.
 | Term | Meaning | Never say |
 | --- | --- | --- |
 | Wallet | An account on the blockchain, controlled by a secret key | Account |
-| Test money | Free tokens on Sui's test network with no real value | Free money |
+| Test money | Free tokens on Base Sepolia with no real value | Free money |
 | USDC | A digital dollar, backed one-for-one by real dollars | Coin |
 | Agent | An AI program that acts on its own, such as paying for data | Bot |
 | Spending limit | The most an agent may spend in a day, enforced by a contract | Budget, cap |
@@ -168,7 +168,7 @@ Readers never see streak counters, random rewards or leaderboards.
 
 - **Buttons:** they name the action and the amount, such as "Send 5 test USDC" or "Refund 2 test USDC," and never just "OK," "Submit" or "Done."
 - **The way out:** it is always "Cancel," never "Decline," "No thanks" or a guilt line.
-- **Test-money notice:** every money screen says "Test money on Sui testnet" until real money is allowed.
+- **Test-money notice:** every money screen says "Test money on Base Sepolia" until real money is allowed.
 - **Errors:** they say what happened and what to do next, in words as well as color.
 - **Style:** sentence case, digits for numbers, and a unit on every amount.
 - **Metaphors:** each one says where it breaks, for example "escrow works like a referee holding the money, but unlike a card payment there is no chargeback."
@@ -177,7 +177,7 @@ Readers never see streak counters, random rewards or leaderboards.
 
 **The guidelines are maintained like code, because their main contributor is an AI agent that starts every session without memory.**
 
-- **Releases:** numbered releases with a changelog. Renaming or removing a token is a breaking change, so products built on Ambition can pin a release and upgrade on purpose. Each part is labeled draft, preview or stable.
+- **Releases:** numbered releases with a changelog. Renaming or removing a token is a breaking change, so products built on Agency Lab can pin a release and upgrade on purpose. Each part is labeled draft, preview or stable.
 - **Decision log:** every approval and rejection goes into a short dated file the agent reads at the start of each session, so it never re-proposes a rejected idea. Public entries double as Build in Public material.
 - **House rules:** an agent instructions file holds the principles, the persuasion policy and your approval step, and a CONTRIBUTING file holds the same rules for people. A proposal template doubles as the agent's brief and checks that Figma matches the code.
 - **Automated checks:** do-and-don't pairs, contrast tests and Carbon's code audit run on every change before it reaches you, and the docs are generated from the code at each release.

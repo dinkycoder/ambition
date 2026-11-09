@@ -2,7 +2,7 @@
 
 Nov 4, 2026 · @dinky
 
-> **Superseded on November 4, 2026** by the [roadmap for agentic commerce on Sui](../roadmap.md). This Base and Solidity roadmap is kept unchanged as the dated record of decisions D-01 to D-26.
+> **Superseded on November 4, 2026** by the [roadmap for agentic commerce on Sui](roadmap-sui-google-cloud-2026-11-07.md). This Base and Solidity roadmap is kept unchanged as the dated record of decisions D-01 to D-26.
 
 ## Summary
 
