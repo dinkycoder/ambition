@@ -2,7 +2,7 @@
 
 The style guide, tokens and money components for Agency Lab. It mirrors the editable Design System artifact; the PDF is in [docs/pdf](../docs/pdf/Agency%20Lab%20Design%20System.pdf). Open any `components/<Name>/preview.html` in a browser to see a component, and add `data-theme="dark"` or `data-theme="high-contrast"` to its `<html>` tag to switch themes.
 
-Agency Lab helps AI builders give their agents money safely, one small win at a time. It is an open-source agentic commerce research and education platform on AWS and Base, built in public one module at a time, and an MSAIE capstone. The interface is calm, exact and honest: it shows what will happen to money before anything happens, and it never pressures anyone. Its structure follows Carbon, IBM's open-source design system, with Agency Lab's own look.
+Agency Lab helps AI builders give their agents money safely, one small win at a time. It is an open-source Micro Research and Education Platform (MREP) for agentic commerce, on AWS and Base, built in public one module at a time, and an MSAIE capstone. The interface is calm, exact and honest: it shows what will happen to money before anything happens, and it never pressures anyone. Its structure follows Carbon, IBM's open-source design system, with Agency Lab's own look.
 
 ## Principles
 

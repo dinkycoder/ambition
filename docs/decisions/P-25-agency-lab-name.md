@@ -6,7 +6,7 @@ Nov 8, 2026 · @dinky
 | --- | --- |
 | Status | Accepted, November 8, 2026 |
 | Supersedes | P-16 (keep the Ambition name) |
-| Related | [P-23](P-23-aws-platform.md) (AWS) and [P-24](P-24-base-chain.md) (Base) |
+| Related | [P-23](P-23-aws-platform.md) (AWS), [P-24](P-24-base-chain.md) (Base) and [P-28](P-28-micro-research-and-education-platform.md) (the Micro Research and Education Platform description) |
 
 ## Summary
 

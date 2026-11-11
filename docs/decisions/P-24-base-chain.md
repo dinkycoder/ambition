@@ -7,6 +7,7 @@ Nov 8, 2026 · @dinky
 | Status | Accepted, November 8, 2026 |
 | Supersedes | P-02 (Sui and Move) |
 | Amends | P-03, P-04, P-05, P-07, P-08, P-09, P-14, P-17, P-18 and P-21 |
+| Amended by | [P-27](P-27-tempo-second-rail.md) (Tempo as a second measured rail), November 11, 2026 |
 | Related | [P-23](P-23-aws-platform.md) (AWS) and [P-25](P-25-agency-lab-name.md) (the name) |
 
 ## Summary
