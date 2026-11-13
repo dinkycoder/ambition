@@ -1,4 +1,4 @@
-# Copies every change on main to https://gitlab.com/dinkycoder/ambition, PDFs and images included.
+# Copies every change on main to https://gitlab.com/dinkycoder/mrep, PDFs and images included.
 # It needs a repository secret named GITLAB_TOKEN: a GitLab personal access token with only the
 # write_repository scope. Until that secret exists, the job skips itself instead of failing.
 # It syncs the files rather than force-pushing history, so GitLab's protected main branch
@@ -47,7 +47,7 @@ jobs:
         run: |
           set -euo pipefail
           git clone --quiet --depth 1 --branch main \
-            "https://oauth2:${GITLAB_TOKEN}@gitlab.com/dinkycoder/ambition.git" gitlab
+            "https://oauth2:${GITLAB_TOKEN}@gitlab.com/dinkycoder/mrep.git" gitlab
           rsync -a --delete --exclude '.git' --exclude '.github' github/ gitlab/
           cd gitlab
           git add -A

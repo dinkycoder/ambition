@@ -4,7 +4,7 @@ Thanks for helping. Agency Lab is built in public, so questions, fixes and ideas
 
 ## Where to contribute
 
-Open issues and pull requests on GitHub at [github.com/dinkycoder/ambition](https://github.com/dinkycoder/ambition), which keeps that address until it is renamed `agency-lab`. The copy at [gitlab.com/dinkycoder/ambition](https://gitlab.com/dinkycoder/ambition) is an automatic mirror that GitHub overwrites on every change, so anything opened or merged there is lost.
+Open issues and pull requests on GitHub at [github.com/dinkycoder/mrep](https://github.com/dinkycoder/mrep) (renamed from `ambition` on November 13, 2026; the old address redirects). The copy at [gitlab.com/dinkycoder/mrep](https://gitlab.com/dinkycoder/mrep) is an automatic mirror that GitHub overwrites on every change, so anything opened or merged there is lost.
 
 ## Safety rules
 

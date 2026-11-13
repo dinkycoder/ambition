@@ -33,7 +33,7 @@ Everything runs on Base Sepolia, Base's free test network, with test money only.
 
 ## Contributing
 
-The main copy of Agency Lab lives on GitHub. [gitlab.com/dinkycoder/ambition](https://gitlab.com/dinkycoder/ambition) is an automatic mirror that GitHub overwrites on every change, so please open issues and pull requests on [GitHub](https://github.com/dinkycoder/ambition). Both repositories keep the address `ambition` until they are renamed `agency-lab` under P-25, and GitHub will redirect the old address. [CONTRIBUTING.md](CONTRIBUTING.md) covers the safety rules, how to propose a change and the design rules.
+The main copy of Agency Lab lives on GitHub. [gitlab.com/dinkycoder/mrep](https://gitlab.com/dinkycoder/mrep) is an automatic mirror that GitHub overwrites on every change, so please open issues and pull requests on [GitHub](https://github.com/dinkycoder/mrep). Both repositories were renamed from `ambition` to `mrep` on November 13, 2026, and the old addresses redirect. [CONTRIBUTING.md](CONTRIBUTING.md) covers the safety rules, how to propose a change and the design rules.
 
 ## License
 
